@@ -1,0 +1,7 @@
+---
+name: Testing
+description: More testing.
+
+runs:
+  using: docker
+  image: Dockerfile

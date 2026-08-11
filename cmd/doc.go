@@ -12,5 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Package cmd implements the command-line interface for the CLI tool.
+// Package cmd wires together the CLI's command tree, flag definitions, and
+// runtime lifecycle. It exists as a separate package from main so that Cobra's
+// command registration (via init()) is isolated from the entrypoint, keeping
+// main.go trivial and testable.
 package cmd

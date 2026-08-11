@@ -12,4 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package scanner
+// Package scanner exists as a standalone package so that the core detection
+// logic remains decoupled from CLI concerns (flags, output formatting, exit
+// codes). This separation lets the scanner be invoked programmatically — from
+// tests, CI tooling, or future library consumers — without pulling in Cobra or
+// terminal dependencies.
+//
+// The package solves two problems that Dependabot cannot solve for itself: (1)
+// discovering which package ecosystems exist across an arbitrarily nested
+// repository tree, and (2) rendering a valid dependabot.yml from those
+// discoveries. By combining both responsibilities here, consumers get a single
+// Scan → Generate pipeline with no intermediate serialization or coordination
+// required.
+package scanner // lint:allow_naming_conflict_stdlib

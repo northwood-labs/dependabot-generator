@@ -1,0 +1,466 @@
+{
+  "pbtResults": {
+    "2.4 Write property tests for compound AND-matching (Property 5)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786410892808
+    },
+    "2.5 Write property tests for OR-matching (Property 6)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786410893584
+    },
+    "2.6 Write property tests for OpenTofu precedence (Property 7)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786410894372
+    },
+    "2.7 Write property tests for multiple ecosystems per directory (Property 8)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786410895139
+    },
+    "2.8 Write property tests for relative path format (Property 9)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786410895941
+    },
+    "4.2 Write property test for serialization round-trip (Property 1)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786411359261
+    },
+    "4.3 Write property test for one entry per ScanResult (Property 2)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786411360061
+    },
+    "4.4 Write property test for sorted output (Property 3)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786411360841
+    },
+    "4.5 Write property test for empty input (Property 4)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786411361664
+    }
+  },
+  "executionHistory": {
+    "1.1 Define types and sentinel errors in `lib/scanner/scanner.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409663299
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409684276
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409853964
+      }
+    ],
+    "1.2 Define the ecosystem rule table in a new `lib/scanner/rules.go` file": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409664157
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409861071
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410076153
+      }
+    ],
+    "2.1 Implement root path validation in `lib/scanner/scanner.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409664940
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410083809
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410204003
+      }
+    ],
+    "2.2 Implement directory walking and rule evaluation in `lib/scanner/scanner.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409665754
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410210530
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410633807
+      }
+    ],
+    "2.3 Implement precedence resolution in `lib/scanner/scanner.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409666603
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410638878
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410695776
+      }
+    ],
+    "2.4 Write property tests for compound AND-matching (Property 5)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409667071
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410700489
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410916689
+      }
+    ],
+    "2.5 Write property tests for OR-matching (Property 6)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409667579
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410701383
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410917342
+      }
+    ],
+    "2.6 Write property tests for OpenTofu precedence (Property 7)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409668283
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410701941
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410918338
+      }
+    ],
+    "2.7 Write property tests for multiple ecosystems per directory (Property 8)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409668949
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410702866
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410919024
+      }
+    ],
+    "2.8 Write property tests for relative path format (Property 9)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409669606
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410703568
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410919782
+      }
+    ],
+    "3. Checkpoint - Ensure Scan function works": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409670244
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410934198
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410938631
+      }
+    ],
+    "4.1 Implement YAML generation in `lib/scanner/scanner.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409670921
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410943009
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411245467
+      }
+    ],
+    "4.2 Write property test for serialization round-trip (Property 1)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409671574
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411250618
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411376327
+      }
+    ],
+    "4.3 Write property test for one entry per ScanResult (Property 2)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409672072
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411251404
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411377016
+      }
+    ],
+    "4.4 Write property test for sorted output (Property 3)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409672882
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411252184
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411377698
+      }
+    ],
+    "4.5 Write property test for empty input (Property 4)": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409673399
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411252975
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411378643
+      }
+    ],
+    "5. Checkpoint - Ensure Generate function works": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409674084
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411384517
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411389033
+      }
+    ],
+    "6.1 Write unit tests for `Scan` against `src/` fixture directories in `lib/scanner/scanner_test.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409674735
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411393539
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412407837
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412424184
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412600898
+      }
+    ],
+    "6.2 Write unit tests for `Generate` in `lib/scanner/scanner_test.go`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409675391
+      },
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411394684
+      }
+    ],
+    "7.1 Update `cmd/run.go` to call `Scan` and `Generate`": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409675903
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412408935
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412610346
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412750072
+      }
+    ],
+    "8. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786409676545
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412409513
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412754818
+      },
+      {
+        "executionId": "762248c4-6c8b-41cd-b246-0d39e14a588e",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786413122118
+      }
+    ],
+    "1. Define types, sentinel errors, and ecosystem rule table": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410076875
+      }
+    ],
+    "2. Implement the Scan function": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786410920324
+      }
+    ],
+    "4. Implement the Generate function": [
+      {
+        "executionId": "c5f97ed5-ea34-4043-a1b6-7ba84b57e36f",
+        "chatSessionId": "sess_3325194c-0b91-419a-aa19-e58311b5e837",
+        "timestamp": 1786411379223
+      }
+    ],
+    "6.2 Write unit tests for `Generate` in `lib/scanner/generate_test.go`": [
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412408436
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412425048
+      },
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412601764
+      }
+    ],
+    "6. Write unit tests using fixture directories": [
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412602303
+      }
+    ],
+    "7. Wire into CLI and finalize": [
+      {
+        "executionId": "e3dae18b-c1f2-4bd6-8075-467368704c79",
+        "chatSessionId": "sess_a053b24b-e895-4727-bcde-1ae02187abb6",
+        "timestamp": 1786412750600
+      }
+    ]
+  }
+}

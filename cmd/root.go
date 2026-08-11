@@ -27,10 +27,14 @@ import (
 )
 
 var (
-	// CLI flags are variables prefixed with lowercase 'f'.
-	fVerbose       int
+	// fVerbose is a count (not a bool) so users can request progressive
+	// verbosity levels: -v for basic, -vv for detailed, -vvv for trace-level
+	// output — matching conventions from tools like ssh and curl.
+	fVerbose int
 
-	// rootCmd represents the base command when called without any subcommands.
+	// rootCmd is the namespace command — it deliberately has no RunE so that
+	// invoking the binary without a subcommand falls through to Cobra's
+	// automatic help display.
 	rootCmd = &cobra.Command{
 		Use:   "dependabot-generator",
 		Short: "Reviews the file structure for files which match Dependabot ecosystem patterns.",
@@ -49,36 +53,25 @@ var (
 		# View long-form version info.
 		dependabot-generator version
 		`)),
-		// Uncomment the following line if your bare application
-		// has an action associated with it:
-		// RunE: func(cmd *cobra.Command, args []string) error {
-		// 	return nil
-		// },
 	}
 )
 
 func init() { // lint:allow_init
-	// Here you will define your flags and configuration settings. Cobra
-	// supports persistent flags, which, if defined here, will be global for
-	// your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file
-	// (default is $HOME/.dependabot-generator.yaml)").
-
-	// Cobra also supports local flags, which will only run when this action is
-	// called directly.
+	// Persistent flags are registered in init() because Cobra requires all
+	// flags to be defined before Execute() is called. This is a framework
+	// constraint — Cobra parses the full flag set during command dispatch.
 	rootCmd.PersistentFlags().CountVarP(
 		&fVerbose, "verbose", "v",
 		"increase verbosity level (can be used multiple times)",
 	)
 }
 
-// Execute adds all child commands to the root command and sets flags
-// appropriately. This is called by main.main(). It only needs to happen once to
-// the rootCmd.
-//
-// We also connect the Fang library here which provides some color in the
-// Terminal when run as a CLI.
+// Execute is the single call that main.go makes to hand control to Cobra. It
+// uses fang to wrap execution with terminal color detection, ensuring the CLI
+// renders correctly on both interactive terminals and piped output. The
+// [os.Exit](1) is here because Cobra signals failure via a returned error
+// rather than exiting itself, so the top-level caller must translate that into
+// a non-zero exit code for the shell.
 func Execute() {
 	if err := fang.Execute(context.Background(), rootCmd); err != nil {
 		os.Exit(1) // lint:allow_exit

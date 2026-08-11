@@ -15,15 +15,22 @@
 package cmd
 
 import (
+	"fmt"
+	"os"
 	"strings"
 
 	"github.com/lithammer/dedent"
 	"github.com/spf13/cobra"
 
 	clihelpers "go.nwlabs.dev/cli-helpers/v2"
+	"go.nwlabs.dev/dependabot-generator/lib/scanner"
 )
 
-// runCmd represents the run command
+// runCmd represents the run command.
+//
+// The run command is the primary user-facing entry point. It defaults to "."
+// because CLI tools conventionally operate on the current directory when no
+// path is given, matching user expectations from git, make, and similar tools.
 var runCmd = &cobra.Command{
 	Use:   "run",
 	Short: "Runs the scanner and generator.",
@@ -45,25 +52,36 @@ var runCmd = &cobra.Command{
 	dependabot-generator run /path/to/other/directory.
 	`)),
 	Args: cobra.RangeArgs(0, 1),
-	RunE: func(cmd *cobra.Command, args []string) error {
-		// path := "."
-		// if len(args) > 0 {
-		// 	path = args[0]
-		// }
+	RunE: func(_ *cobra.Command, args []string) error {
+		// Default to current directory — the most common case is running the
+		// tool from the repo root.
+		path := "."
+		if len(args) > 0 {
+			path = args[0]
+		}
 
-		// proj, err := scanner.Scan(path)
-		// if err != nil {
-		// 	return fmt.Errorf("error when scanning project files: %w", err)
-		// }
+		results, scanErr := scanner.Scan(path)
+		if scanErr != nil {
+			// Wrap with a user-facing description so the error message makes
+			// sense without knowing internal function names.
+			return fmt.Errorf("error when scanning project files: %w", scanErr)
+		}
 
-		// if err := scanner.Generate(proj); err != nil {
-		// 	return fmt.Errorf("error when generating Dependabot configuration: %w", err)
-		// }
+		output, genErr := scanner.Generate(results)
+		if genErr != nil {
+			return fmt.Errorf(
+				"error when generating Dependabot configuration: %w", genErr,
+			)
+		}
+
+		// Output goes to stdout so it can be piped or redirected (e.g.,
+		// `dependabot-generator run > .github/dependabot.yml`).
+		fmt.Fprint(os.Stdout, output)
 
 		return nil
 	},
 }
 
-func init() {
+func init() { // lint:allow_init
 	rootCmd.AddCommand(runCmd)
 }

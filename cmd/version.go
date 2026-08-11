@@ -16,8 +16,14 @@ package cmd
 
 import clihelpers "go.nwlabs.dev/cli-helpers/v2"
 
+// versionCmd is delegated to cli-helpers so that all Northwood Labs CLI tools
+// share a consistent version display format. Centralizing this avoids
+// duplicating version-screen logic across repositories and ensures updates
+// propagate automatically via dependency bumps.
 var versionCmd = clihelpers.VersionScreen()
 
 func init() { // lint:allow_init
+	// Cobra discovers subcommands only through explicit AddCommand calls — this
+	// is the framework's registration mechanism.
 	rootCmd.AddCommand(versionCmd)
 }

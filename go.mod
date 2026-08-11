@@ -4,9 +4,12 @@ go 1.26.5
 
 require (
 	charm.land/fang/v2 v2.0.1
+	github.com/goreleaser/fileglob v1.4.0
 	github.com/lithammer/dedent v1.1.0
 	github.com/spf13/cobra v1.10.2
 	go.nwlabs.dev/cli-helpers/v2 v2.0.0-20260807231415-c1bdb19c311d
+	gopkg.in/yaml.v3 v3.0.1
+	pgregory.net/rapid v1.3.0
 )
 
 require (
@@ -30,7 +33,6 @@ require (
 	github.com/dlclark/regexp2/v2 v2.6.0 // indirect
 	github.com/go-logfmt/logfmt v0.6.1 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
-	github.com/goreleaser/fileglob v1.4.0 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.4.1 // indirect

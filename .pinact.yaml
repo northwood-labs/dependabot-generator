@@ -32,4 +32,5 @@ rules:
           ActionName matches "step-security/harden-runner"
       - expr: |
           ActionName matches "github/codeql-action"
+
 # @config-manager:end pinact-standard-rules

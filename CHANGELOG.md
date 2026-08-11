@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- 0 -->:rocket: Features
+### :books: Documentation
 
-* [`bad71db`](https://github.com/northwood-labs/dependabot-generator/commit/bad71dbc5e79f01c6df3a84b4675d261b6c6c23c): Implement scanner library and wire into CLI. ([@skyzyx](https://github.com/skyzyx))
+* [`41a10eb`](https://github.com/northwood-labs/dependabot-generator/commit/41a10eb4690d6bfbbbaef6f371e2408b9158ff59): Add structured logging and comprehensive documentation ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-11.</p>

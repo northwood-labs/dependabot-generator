@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- 0 -->:rocket: Features
 
-* [`6a892eb`](https://github.com/northwood-labs/dependabot-generator/commit/6a892eb6829561805792a65c47297fd168eee4c2): Initial commit. ([@skyzyx](https://github.com/skyzyx))
+* [`bad71db`](https://github.com/northwood-labs/dependabot-generator/commit/bad71dbc5e79f01c6df3a84b4675d261b6c6c23c): Implement scanner library and wire into CLI. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-08-10.</p>
+<p>Generated on 2026-08-11.</p>

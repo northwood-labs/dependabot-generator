@@ -24,6 +24,7 @@ import (
 
 	clihelpers "go.nwlabs.dev/cli-helpers/v2"
 	"go.nwlabs.dev/dependabot-generator/lib/scanner"
+	"go.nwlabs.dev/x/logutils"
 )
 
 // runCmd represents the run command.
@@ -69,14 +70,17 @@ var runCmd = &cobra.Command{
 
 		output, genErr := scanner.Generate(results)
 		if genErr != nil {
-			return fmt.Errorf(
-				"error when generating Dependabot configuration: %w", genErr,
-			)
+			return fmt.Errorf("error when generating Dependabot configuration: %w", genErr)
 		}
 
 		// Output goes to stdout so it can be piped or redirected (e.g.,
 		// `dependabot-generator run > .github/dependabot.yml`).
 		fmt.Fprint(os.Stdout, output)
+
+		return nil
+	},
+	PersistentPreRunE: func(_ *cobra.Command, _ []string) error {
+		logger = logutils.GetDefaultLogger(fVerbose)
 
 		return nil
 	},

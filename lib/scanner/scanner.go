@@ -15,6 +15,7 @@
 package scanner // lint:allow_naming_conflict_stdlib
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"io/fs"
@@ -63,6 +64,8 @@ var (
 		{Winner: "opentofu", Loser: "terraform"},
 		{Winner: "uv", Loser: "pip"},
 	}
+
+	ctx = context.Background()
 )
 
 type (

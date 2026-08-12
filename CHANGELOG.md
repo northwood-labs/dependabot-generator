@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :books: Documentation
+### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`cca9e15`](https://github.com/northwood-labs/dependabot-generator/commit/cca9e156b80ff3de70cfce61b184eb0392941325): Document layered configuration system and comment formatting design. ([@skyzyx](https://github.com/skyzyx))
+* [`ce041e1`](https://github.com/northwood-labs/dependabot-generator/commit/ce041e1ac3406ff9251407858929e4442d3d0d4b): Adjust CodeQL and OSV scanner workflow configuration. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

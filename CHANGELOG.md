@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- 0 -->:rocket: Features
+### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`46080aa`](https://github.com/northwood-labs/dependabot-generator/commit/46080aa305be57882483da03b7a4ab8e8f2f4ad0): Implement conditional ecosystem default values. ([@skyzyx](https://github.com/skyzyx))
+* [`023a178`](https://github.com/northwood-labs/dependabot-generator/commit/023a1782311064a1f2d85f1e06f49a1532c40973): Remove MCP config from version control. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

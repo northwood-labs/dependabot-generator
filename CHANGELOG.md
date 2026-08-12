@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :tractor: Refactor
+### :books: Documentation
 
-* [`79e7d1a`](https://github.com/northwood-labs/dependabot-generator/commit/79e7d1a9b6030cd547e7d751cb8f86ea7ae7b55f): Updated Dependabot configuration defaults and documentation. ([@skyzyx](https://github.com/skyzyx))
+* [`cca9e15`](https://github.com/northwood-labs/dependabot-generator/commit/cca9e156b80ff3de70cfce61b184eb0392941325): Document layered configuration system and comment formatting design. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

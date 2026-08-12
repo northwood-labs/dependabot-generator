@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/northwood-labs/dependabot-generator/blob/main/docs/depgen.schema.json",
+  "title": "dependabot-generator configuration",
+  "description": "Schema for the .depgen.toml configuration file used by dependabot-generator.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "header": {
+      "type": "string",
+      "description": "Custom comment text prepended to the generated dependabot.yml. Supports multi-line strings. When omitted, the built-in default URL reference is used."
+    },
+    "ignore-dirs": {
+      "type": "array",
+      "description": "Glob patterns matched against directory base names. Matching directories are skipped during the scan. Uses filepath.Match semantics. When specified, replaces (not appends to) the built-in defaults.",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A glob pattern compatible with Go filepath.Match (e.g., node_modules, .*, vendor)."
+      },
+      "default": [
+        "node_modules",
+        ".venv",
+        "venv",
+        "vendor",
+        ".*"
+      ],
+      "examples": [
+        [
+          "node_modules",
+          ".venv",
+          "venv",
+          "vendor",
+          ".*"
+        ],
+        [
+          "node_modules",
+          "vendor",
+          "third_party",
+          ".*"
+        ]
+      ]
+    },
+    "ecosystems": {
+      "type": "object",
+      "description": "Per-ecosystem default fields injected into each generated update entry. Keys use dotted paths that expand into nested YAML (e.g., schedule.interval becomes schedule: { interval: ... }). The special _default key applies to all ecosystems unless overridden by a more specific section.",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(_default|bazel|bun|bundler|cargo|composer|conda|deno|devcontainers|docker|docker-compose|dotnet-sdk|elm|github-actions|gitsubmodule|gomod|gradle|helm|julia|maven|mix|nix|npm|nuget|opentofu|pip|pre-commit|pub|rust-toolchain|sbt|swift|terraform|uv|vcpkg)$": {
+          "type": "object",
+          "description": "A map of dotted-path keys to their values. Keys correspond to Dependabot v2 update entry fields using dot notation for nesting.",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "properties": {
+            "schedule.interval": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ],
+              "description": "How often to check for updates."
+            },
+            "schedule.day": {
+              "type": "string",
+              "enum": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday",
+                "sunday"
+              ],
+              "description": "Day of the week to check for updates (only for weekly schedule)."
+            },
+            "insecure-external-code-execution": {
+              "type": "string",
+              "enum": [
+                "allow",
+                "deny"
+              ],
+              "description": "Whether to allow or deny execution of external code during dependency updates."
+            },
+            "open-pull-requests-limit": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Maximum number of open pull requests for version updates."
+            },
+            "cooldown.default-days": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of days to wait before re-attempting a failed update."
+            },
+            "cooldown.semver-major-days": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of days to wait before re-attempting a failed major version update."
+            },
+            "cooldown.semver-minor-days": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of days to wait before re-attempting a failed minor version update."
+            },
+            "cooldown.semver-patch-days": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of days to wait before re-attempting a failed patch version update."
+            }
+          },
+          "patternProperties": {
+            "^groups\\..+\\.patterns$": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Glob patterns for grouping dependencies together in a single pull request."
+            },
+            "^groups\\..+\\.update-types$": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "major",
+                  "minor",
+                  "patch"
+                ]
+              },
+              "description": "SemVer update types to include in this dependency group."
+            },
+            "^groups\\..+\\.dependency-type$": {
+              "type": "string",
+              "enum": [
+                "development",
+                "production"
+              ],
+              "description": "The type of dependencies to include in this group."
+            }
+          },
+          "examples": [
+            {
+              "schedule.interval": "monthly",
+              "insecure-external-code-execution": "deny",
+              "cooldown.default-days": 7,
+              "groups.monthly-batch.patterns": [
+                "*"
+              ]
+            },
+            {
+              "schedule.interval": "weekly",
+              "groups.npm-deps.patterns": [
+                "*"
+              ],
+              "groups.npm-deps.update-types": [
+                "minor",
+                "patch"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "header": "# Managed by dependabot-generator. Do not edit.\n",
+      "ignore-dirs": [
+        "node_modules",
+        ".venv",
+        "venv",
+        "vendor",
+        ".*"
+      ],
+      "ecosystems": {
+        "_default": {
+          "schedule.interval": "monthly",
+          "insecure-external-code-execution": "deny",
+          "cooldown.default-days": 7,
+          "groups.monthly-batch.patterns": [
+            "*"
+          ]
+        },
+        "github-actions": {
+          "schedule.interval": "weekly",
+          "groups.actions.patterns": [
+            "*"
+          ]
+        }
+      }
+    }
+  ]
+}

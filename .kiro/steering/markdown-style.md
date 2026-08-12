@@ -17,6 +17,13 @@ This project enforces Markdown conventions via `.rumdl.toml` and `.editorconfig`
 * One blank line above and below headings, lists, tables, fenced code blocks, and horizontal rules.
 <!-- @config-manager:end whitespace -->
 
+## Wrapping
+
+<!-- @config-manager:start wrapping -->
+* Paragraphs, sentences, and list items should not wrap. They should continue to run on a single line.
+* Allow the tools consuming Markdown to soft-wrap the content.
+<!-- @config-manager:end wrapping -->
+
 ## Headings
 
 <!-- @config-manager:start headings -->

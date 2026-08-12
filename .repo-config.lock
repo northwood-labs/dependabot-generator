@@ -97,24 +97,29 @@ source_hash = ''
 dest_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
 
 [files.'.golangci.yml']
-last_sync_time = '2026-08-10T21:54:31Z'
+last_sync_time = '2026-08-12T00:12:45Z'
 source_hash = ''
-dest_hash = 'sha256:5364401554d8f8f017418166998342d622e84217c940d5abcd1683bd6a4653ff'
+dest_hash = 'sha256:d8489a2dab630b3aad45b4ab96ae469fce4597bc2b9c32b1e59d1df769f7b3d8'
 
 [files.'.gommit.toml']
 last_sync_time = '2026-08-11T15:22:20Z'
 source_hash = ''
 dest_hash = 'sha256:8b99cde1f1b1b81c0e067c5d6953dd5c7e850e7978c6a3fcfc3af62574c5463e'
 
-[files.'.kiro/steering/go-code-conventions.md']
-last_sync_time = '2026-08-10T19:42:39Z'
+[files.'.kiro/steering/go-cli-application.md']
+last_sync_time = '2026-08-12T00:12:45Z'
 source_hash = ''
-dest_hash = 'sha256:3e9dc4636f9fb34732bf0f40b96d0efda57f05747eda76f077d4b4f213d96692'
+dest_hash = 'sha256:7da32215ce31e5cd16b3ae3682e3ece7d3fa19a2311324fac3e1c9d9798c557c'
+
+[files.'.kiro/steering/go-code-conventions.md']
+last_sync_time = '2026-08-12T00:12:45Z'
+source_hash = ''
+dest_hash = 'sha256:f58f63e51de4a45d20ee97f6ce8728bae293a51af602ebc8e2dd6610a1c50f8f'
 
 [files.'.kiro/steering/markdown-style.md']
-last_sync_time = '2026-08-10T19:42:53Z'
+last_sync_time = '2026-08-12T00:12:45Z'
 source_hash = ''
-dest_hash = 'sha256:2237fefd77ead167299dba77b9867210ac6a99807e850102bb8e62b4a5f372cc'
+dest_hash = 'sha256:7512b1d05cb99b12d32189dc1ad9d9207f2dad064e61669d2f4e3d2be48ce441'
 
 [files.'.kirograph/']
 last_sync_time = '2026-08-10T19:42:53Z'

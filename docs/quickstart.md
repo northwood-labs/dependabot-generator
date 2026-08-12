@@ -10,13 +10,20 @@ main.go → cmd.Execute() → fang.Execute(ctx, rootCmd) → Cobra dispatch
 
 ## Primary flow
 
-The `run` command is the only user-facing action. It implements a two-stage pipeline:
+The `run` command is the only user-facing action. It implements a multi-stage pipeline:
 
 ```text
 1. Parse CLI args (default path: ".")
-2. scanner.Scan(logger, path)        → walk directory tree, match ecosystem rules
-3. scanner.Generate(logger, results) → sort results, encode to YAML
-4. Print YAML to stdout
+2. Validate mutual exclusivity of --header / --header-file
+3. Read --header-file contents (if specified)
+4. Resolve DEPGEN_HEADER environment variable
+5. config.LoadConfig(opts)             → layered TOML merge + priority resolution
+6. config.Validate(cfg)                → check ignore patterns are well-formed
+7. Enforce header size limit (8 KiB)
+8. scanner.Scan(path, cfg.IgnoreDirs)  → walk directory tree, match ecosystem rules
+9. Convert config ecosystem defaults → scanner.EcosystemSettings
+10. scanner.Generate(results, genOpts) → sort results, encode to YAML with extras
+11. Print YAML to stdout
 ```
 
 The user captures output via shell redirection:
@@ -25,11 +32,32 @@ The user captures output via shell redirection:
 dependabot-generator run . > .github/dependabot.yml
 ```
 
+### Configuration resolution
+
+Before scanning, the `run` command resolves configuration from multiple sources. The priority order (highest wins):
+
+```text
+CLI flags (--header, --header-file)
+  ↓ overrides
+Environment variable (DEPGEN_HEADER)
+  ↓ overrides
+Local config file (.depgen.toml in scan path)
+  ↓ overrides
+User config file ($XDG_CONFIG_HOME/dependabot-generator/config.toml)
+  ↓ overrides
+Global config file (/etc/dependabot-generator/config.toml)
+  ↓ overrides
+Built-in defaults (compiled into the binary)
+```
+
+The config layer resolves three concerns: header comment text, directory ignore patterns, and per-ecosystem field defaults.
+
 ### Scan stage
 
 * Validates the root path (exists, is a directory, is readable).
 * Resolves to an absolute path (required by the glob library).
 * Walks the directory tree using `fs.WalkDir` over `os.DirFS`.
+* Skips directories matching any pattern from `cfg.IgnoreDirs`.
 * For each directory, evaluates all 32 ecosystem rules from the rules table.
 * Each rule uses OR-of-AND pattern matching: the outer slice is OR (any group matching is sufficient), each inner slice is AND (all patterns must match).
 * After the walk, applies precedence rules to suppress generic ecosystems when a more specific tool is detected (e.g., `bun` suppresses `npm`, `uv` suppresses `pip`).
@@ -37,54 +65,74 @@ dependabot-generator run . > .github/dependabot.yml
 ### Generate stage
 
 * Copies and sorts results deterministically (directory ascending, then ecosystem ascending).
-* Maps results to Dependabot v2 YAML structs.
+* Looks up per-ecosystem extra fields from `EcosystemDefaults` (falls back to `_default` key).
+* Builds a YAML Node tree for deterministic key ordering per update entry.
 * Encodes via `gopkg.in/yaml.v3` with 2-space indentation.
 * Prepends the `---` YAML document separator.
+* Inserts formatted header comment (if configured) between the separator and the body.
 
 ## Module roles
 
-| Module                   | Responsibility                                               |
-|--------------------------|--------------------------------------------------------------|
-| `main.go`                | Trivial entrypoint — calls `cmd.Execute()`                   |
-| `cmd/`                   | Cobra command definitions, flag registration, CLI lifecycle  |
-| `cmd/root.go`            | Root command (help-only), verbose flag, `Execute()` function |
-| `cmd/run.go`             | Primary command — orchestrates Scan → Generate → stdout      |
-| `cmd/version.go`         | Version subcommand (delegated to shared cli-helpers)         |
-| `lib/scanner/`           | Core detection and generation logic, decoupled from CLI      |
-| `lib/scanner/scanner.go` | `Scan()`, `Generate()`, pattern evaluation, precedence       |
-| `lib/scanner/rules.go`   | Data-driven ecosystem detection table (32 rules)             |
-| `src/`                   | Test fixtures — one directory per ecosystem with variants    |
-| `docs/`                  | Project documentation                                        |
+| Module                   | Responsibility                                              |
+|--------------------------|-------------------------------------------------------------|
+| `main.go`                | Trivial entrypoint, calls `cmd.Execute()`                   |
+| `cmd/`                   | Cobra command definitions, flag registration, CLI lifecycle |
+| `cmd/root.go`            | Root command (help-only), verbose flag, `Execute()`         |
+| `cmd/run.go`             | Primary command: config resolution, Scan, Generate, stdout  |
+| `cmd/version.go`         | Version subcommand (delegated to shared cli-helpers)        |
+| `cmd/errors.go`          | Sentinel error definitions for the CLI layer                |
+| `lib/config/`            | Layered TOML config loading, merging, and validation        |
+| `lib/config/config.go`   | Types, defaults, and sentinel errors for config             |
+| `lib/config/loader.go`   | `LoadConfig()`, `Validate()`, file resolution               |
+| `lib/scanner/`           | Core detection and generation logic, decoupled from CLI     |
+| `lib/scanner/scanner.go` | `Scan()`, `Generate()`, pattern evaluation, precedence      |
+| `lib/scanner/rules.go`   | Data-driven ecosystem detection table (32 rules)            |
+| `lib/scanner/comment.go` | `FormatComment()` for YAML header comment formatting        |
+| `src/`                   | Test fixture directories (one per ecosystem)                |
+| `docs/`                  | Project documentation                                       |
 
 ## Design decisions
 
-### Why a data-driven rules table?
+### Convention over configuration
 
-Adding a new ecosystem requires only a single struct entry in `rules.go`. No procedural code changes, no new functions, no conditional branches. The table is sorted alphabetically for human readability — runtime evaluation checks every rule independently regardless of order.
+The tool requires zero mandatory setup. Point it at a directory and it produces output. The optional `.depgen.toml` config adds flexibility (custom schedules, ignore patterns, header text) without breaking the zero-config default path.
 
-### Why OR-of-AND pattern matching?
+### Data-driven rules table
+
+Adding a new ecosystem requires only a single struct entry in `rules.go`. No procedural code changes, no new functions, no conditional branches. The table is sorted alphabetically for human readability, and runtime evaluation checks every rule independently regardless of order.
+
+### OR-of-AND pattern matching
 
 Ecosystem detection often requires expressing "file A exists" OR "files B AND C both exist." The two-level `[][]string` encoding covers every real Dependabot detection pattern without needing a custom expression language or DSL.
 
-### Why post-processing precedence instead of inline checks?
+### Post-processing precedence
 
 A winner (e.g., `bun`) and its loser (e.g., `npm`) may be discovered in any order during the walk. Resolving precedence after the full walk guarantees correctness regardless of discovery order and keeps the walk logic simple.
 
-### Why stdout-only output?
+### Layered configuration
 
-Following Unix conventions, the tool writes to stdout so users can pipe, redirect, or compose with other tools. No `--output` flag is needed — shell redirection handles all cases.
+The config system mirrors established conventions (global, user, local, env, CLI) so that teams can set organization defaults in `/etc/` or user preferences in `$XDG_CONFIG_HOME` while individual repositories override via `.depgen.toml`.
 
-### Why no user configuration file?
+### Stdout-only output
 
-The tool is purely convention-based. Detection is driven entirely by the presence of well-known files in the repository tree. This eliminates configuration drift and means the tool works correctly on any repository without setup.
+Following Unix conventions, the tool writes to stdout so users can pipe, redirect, or compose with other tools. No `--output` flag is needed.
 
-### Why is the scanner a separate package?
+### Deterministic output
 
-Decoupling detection logic from CLI concerns (flags, exit codes, terminal formatting) allows the scanner to be invoked programmatically — from tests, CI tooling, or potential future library consumers — without pulling in Cobra or terminal dependencies.
+Sorting results before YAML encoding guarantees that identical inputs always produce identical output. Users commit `dependabot.yml` and review diffs in PRs, so non-deterministic ordering would create noise.
+
+### Scanner isolation from CLI
+
+The `lib/scanner` package has no dependency on Cobra, Fang, or any terminal library. Tests run without CLI bootstrapping, and the scanner can be imported as a library by other tools.
+
+### Property-based testing
+
+The test suite uses `pgregory.net/rapid` for property-based testing alongside traditional unit tests and fixture-based integration tests. This provides coverage of edge cases that hand-written tests miss, and verifies invariants (sort stability, precedence correctness, round-trip encoding) across random inputs.
 
 ## Risks and unknowns
 
-* **Glob library behavior**: `fileglob` can recurse into directories whose names match non-glob patterns (e.g., a directory named `rust-toolchain`). The `filterMatchesByDepth` function mitigates this, but edge cases with unusual filesystem layouts may still produce false positives.
-* **No ignore patterns**: The scanner walks the entire tree with no mechanism to exclude directories (e.g., `vendor/`, `node_modules/`). Large repositories with vendored dependencies may produce unwanted matches.
-* **Ecosystem rule maintenance**: The rules table must be manually kept in sync with Dependabot's evolving ecosystem support. If Dependabot adds a new ecosystem or changes detection patterns, the tool needs a corresponding update.
-* **No merge with existing config**: The tool generates a fresh `dependabot.yml` every time. It does not read or merge with an existing configuration, meaning any manual customizations (schedules, reviewers, ignore rules) would be overwritten.
+* **No merge with existing configuration.** The tool always generates a fresh `dependabot.yml`. Manual customizations (reviewers, labels, ignore rules, groups) are lost on regeneration.
+* **Glob library edge cases.** `fileglob` can produce unexpected results when directory names match non-glob patterns. The `filterMatchesByDepth` function mitigates this, but symlink cycles or OS-specific path issues could still cause false positives.
+* **Ecosystem rule staleness.** The 32 rules are derived from Dependabot's source code. If Dependabot adds new ecosystems or changes detection patterns, the tool needs a manual update.
+* **No output validation.** The generated YAML is not validated against GitHub's Dependabot schema. Malformed output from bugs would only surface when GitHub rejects the file.
+* **Header size limit.** The 8 KiB cap on resolved header text is an arbitrary guard. If a user hits this limit, the error message explains it, but there is no override mechanism.

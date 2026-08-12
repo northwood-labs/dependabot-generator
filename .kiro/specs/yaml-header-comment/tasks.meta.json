@@ -1,0 +1,624 @@
+{
+  "pbtResults": {
+    "10.2 Write property test for directory exclusion (Property 2)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480636685
+    },
+    "10.3 Write property test for wrap limit (Property 3)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480637536
+    },
+    "10.4 Write property test for URL preservation (Property 4)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480638413
+    },
+    "10.1 Write property test for priority resolution (Property 1)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480638832
+    },
+    "10.5 Write property test for short line preservation (Property 5)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480639264
+    },
+    "10.6 Write property test for size limit (Property 6)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480640234
+    },
+    "10.7 Write property test for prefix idempotence (Property 7)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480640951
+    },
+    "10.8 Write property test for trailing newline handling (Property 8)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480641807
+    },
+    "10.12 Write property test for whitespace-only input (Property 12)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480642669
+    },
+    "10.13 Write property test for internal blank lines (Property 13)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480643516
+    },
+    "10.9 Write property test for comment placement (Property 9)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480791785
+    },
+    "10.10 Write property test for YAML round-trip (Property 10)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480792626
+    },
+    "10.11 Write property test for comment lines validity (Property 11)": {
+      "status": "passed",
+      "lastRunTimestamp": 1786480793429
+    }
+  },
+  "executionHistory": {
+    "1.1 Create `lib/config/doc.go` with package documentation": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200024
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478217139
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478352624
+      }
+    ],
+    "1.2 Create `lib/config/config.go` with core types and built-in defaults": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200172
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478218145
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478353552
+      }
+    ],
+    "1.3 Create `lib/config/loader.go` with `LoadConfig` and `Validate` functions": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200273
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478368573
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478534398
+      }
+    ],
+    "2. Checkpoint — Ensure config package compiles": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200337
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479907544
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479938018
+      }
+    ],
+    "3.1 Create `lib/scanner/comment.go` with `FormatComment` and `WrapLine` functions": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200404
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478369457
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478535323
+      }
+    ],
+    "4.1 Add `GenerateOptions` struct and `EcosystemConfig` import, update `Generate` signature": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200474
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478544225
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478729673
+      }
+    ],
+    "4.2 Implement per-ecosystem field merging in `Generate`": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200542
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478738844
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479631464
+      }
+    ],
+    "4.3 Update `Scan` to accept `ignoreDirs []string` parameter": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200611
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478545066
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478730750
+      }
+    ],
+    "5. Checkpoint — Ensure scanner package compiles and existing tests pass": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200674
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479908560
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479938593
+      }
+    ],
+    "6.1 Create `cmd/errors.go` with sentinel errors for the CLI layer": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200737
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478219261
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478354589
+      }
+    ],
+    "6.2 Update `cmd/run.go` with new flags, env var lookup, config loading, and validation": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200801
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479640181
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479895100
+      }
+    ],
+    "7. Checkpoint — Ensure full project compiles and existing tests pass": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200888
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479909334
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479939702
+      }
+    ],
+    "8.1 Create `lib/config/loader_test.go` with unit tests": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478200953
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479947296
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480201499
+      }
+    ],
+    "9.1 Create `lib/scanner/comment_test.go` with unit tests for `FormatComment` and `WrapLine`": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201025
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479948208
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480202383
+      }
+    ],
+    "9.2 Update `lib/scanner/scanner_test.go` for updated `Scan` and `Generate` signatures": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201121
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480210220
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480422772
+      }
+    ],
+    "10.1 Write property test for priority resolution (Property 1)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201185
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480448535
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480657405
+      }
+    ],
+    "10.2 Write property test for directory exclusion (Property 2)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201243
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480449474
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480658297
+      }
+    ],
+    "10.3 Write property test for wrap limit (Property 3)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201309
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480450414
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480659105
+      }
+    ],
+    "10.4 Write property test for URL preservation (Property 4)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201376
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480451315
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480659898
+      }
+    ],
+    "10.5 Write property test for short line preservation (Property 5)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201442
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480452185
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480660696
+      }
+    ],
+    "10.6 Write property test for size limit (Property 6)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201538
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480460331
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480664521
+      }
+    ],
+    "10.7 Write property test for prefix idempotence (Property 7)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201603
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480461104
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480665281
+      }
+    ],
+    "10.8 Write property test for trailing newline handling (Property 8)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201661
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480461969
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480666153
+      }
+    ],
+    "10.9 Write property test for comment placement (Property 9)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201727
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480677153
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480994313
+      }
+    ],
+    "10.10 Write property test for YAML round-trip (Property 10)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201792
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480676388
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480993447
+      }
+    ],
+    "10.11 Write property test for comment lines validity (Property 11)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201860
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480678064
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480992577
+      }
+    ],
+    "10.12 Write property test for whitespace-only input (Property 12)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478201929
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480462845
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480667099
+      }
+    ],
+    "10.13 Write property test for internal blank lines (Property 13)": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478202011
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480463727
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480667817
+      }
+    ],
+    "11.1 Create integration test for end-to-end CLI pipeline": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478202079
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480678935
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480995348
+      }
+    ],
+    "12. Final checkpoint — Ensure all tests pass": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478202142
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480999647
+      },
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786481035115
+      }
+    ],
+    "1. Create `lib/config` package with types and built-in defaults": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478534511
+      }
+    ],
+    "3. Add comment formatting and text wrapping to `lib/scanner`": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786478535391
+      }
+    ],
+    "4. Modify `lib/scanner` Generate function and Scan function": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479631529
+      }
+    ],
+    "6. CLI integration in `cmd/`": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786479895167
+      }
+    ],
+    "8. Unit tests for `lib/config`": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480201575
+      }
+    ],
+    "9. Unit tests for comment formatting and scanner changes": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480422845
+      }
+    ],
+    "10. Property-based tests": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480994389
+      }
+    ],
+    "11. Integration tests": [
+      {
+        "executionId": "7ee24f40-dbac-45ed-91a9-4df9c9d90194",
+        "chatSessionId": "sess_4684987f-9474-483e-bf47-1acad6fb9858",
+        "timestamp": 1786480995448
+      }
+    ]
+  }
+}

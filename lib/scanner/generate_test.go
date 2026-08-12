@@ -48,7 +48,7 @@ func TestGenerate_YAMLStructure(t *testing.T) {
 		{Directory: "/", Ecosystem: "github-actions"},
 	}
 
-	output, err := Generate(results)
+	output, err := Generate(results, nil)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -96,7 +96,7 @@ func TestGenerate_SortedOutput(t *testing.T) {
 		{Directory: "/a", Ecosystem: "gomod"},
 	}
 
-	output, err := Generate(results)
+	output, err := Generate(results, nil)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -140,7 +140,7 @@ func TestGenerate_EmptyResults(t *testing.T) {
 
 	var emptyResults []ScanResult
 
-	output, err := Generate(emptyResults)
+	output, err := Generate(emptyResults, nil)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -175,7 +175,7 @@ func TestGenerate_EmptyResults(t *testing.T) {
 func TestGenerate_NilResults(t *testing.T) {
 	t.Parallel()
 
-	output, err := Generate(nil)
+	output, err := Generate(nil, nil)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -215,7 +215,7 @@ func TestGenerate_MultipleEcosystemsSameDirectory(t *testing.T) {
 		{Directory: "/", Ecosystem: "github-actions"},
 	}
 
-	output, err := Generate(results)
+	output, err := Generate(results, nil)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -263,7 +263,7 @@ func TestGenerate_DocumentSeparator(t *testing.T) {
 		{Directory: "/", Ecosystem: "npm"},
 	}
 
-	output, err := Generate(results)
+	output, err := Generate(results, nil)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}

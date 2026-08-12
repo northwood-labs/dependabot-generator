@@ -82,7 +82,7 @@ func TestProperty5_CompoundANDMatchingRequiresAllPatterns(t *testing.T) {
 			rt.Fatal(writeErr)
 		}
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}
@@ -120,7 +120,7 @@ func TestProperty6_ORMatchingSucceedsOnAnyAlternative(t *testing.T) {
 			rt.Fatal(writeErr)
 		}
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}
@@ -162,7 +162,7 @@ func TestProperty7_OpenTofuPrecedence(t *testing.T) {
 
 		writePrecedenceFiles(rt, root, tofuName, tfName)
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}
@@ -232,7 +232,7 @@ func TestProperty8_MultipleEcosystemsPerDirectory(t *testing.T) {
 
 		writeMultiEcosystemFiles(rt, root)
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}
@@ -318,7 +318,7 @@ func TestProperty9_RelativePathFormat(t *testing.T) {
 			rt.Fatal(writeErr)
 		}
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}
@@ -348,7 +348,7 @@ func TestProperty1_SerializationRoundTrip(t *testing.T) {
 	rapid.Check(t, func(rt *rapid.T) {
 		results := rapid.SliceOfN(genScanResult(), 1, 10).Draw(rt, "results")
 
-		yamlStr, genErr := Generate(results)
+		yamlStr, genErr := Generate(results, nil)
 		if genErr != nil {
 			rt.Fatal(genErr)
 		}
@@ -411,7 +411,7 @@ func TestProperty2_OneEntryPerScanResult(t *testing.T) {
 		n := rapid.IntRange(0, 20).Draw(rt, "n")
 		results := rapid.SliceOfN(genScanResult(), n, n).Draw(rt, "results")
 
-		yamlStr, genErr := Generate(results)
+		yamlStr, genErr := Generate(results, nil)
 		if genErr != nil {
 			rt.Fatal(genErr)
 		}
@@ -442,7 +442,7 @@ func TestProperty3_OutputIsSorted(t *testing.T) {
 	rapid.Check(t, func(rt *rapid.T) {
 		results := rapid.SliceOfN(genScanResult(), 1, 20).Draw(rt, "results")
 
-		yamlStr, genErr := Generate(results)
+		yamlStr, genErr := Generate(results, nil)
 		if genErr != nil {
 			rt.Fatal(genErr)
 		}
@@ -487,7 +487,7 @@ func TestProperty4_EmptyInputProducesValidEmptyDocument(t *testing.T) {
 		// design.
 		var input []ScanResult
 
-		yamlStr, genErr := Generate(input)
+		yamlStr, genErr := Generate(input, nil)
 		if genErr != nil {
 			rt.Fatal(genErr)
 		}
@@ -552,7 +552,7 @@ func TestProperty10_BunPrecedenceOverNpm(t *testing.T) {
 
 		writeBunAndNpmFiles(rt, subDir)
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}
@@ -608,7 +608,7 @@ func TestProperty11_UvPrecedenceOverPip(t *testing.T) {
 
 		writeUvAndPipFiles(rt, subDir)
 
-		results, scanErr := Scan(root)
+		results, scanErr := Scan(root, nil)
 		if scanErr != nil {
 			rt.Fatal(scanErr)
 		}

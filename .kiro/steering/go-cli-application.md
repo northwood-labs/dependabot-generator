@@ -3,6 +3,7 @@ inclusion: fileMatch
 fileMatchPattern: "**/*.go"
 ---
 
+<!-- @config-manager:start cli-patterns -->
 # Go CLI Tool Patterns
 
 This repository is a Go CLI tool. Follow these conventions when writing or modifying code.
@@ -41,8 +42,28 @@ Use the current year for new files.
 
 * Use `github.com/spf13/cobra` for command structure.
 * Use `charm.land/fang/v2` to wrap Cobra execution for terminal color support.
-* Use `go.nwlabs.dev/cli-helpers/v2` for shared CLI helpers (e.g., `clihelpers.LongHelpText()`).
-* Import the cli-helpers package with the alias `clihelpers`.
+* Use `github.com/knadh/koanf` instead of `github.com/spf13/viper` for CLI configuration.
+* Use `go.nwlabs.dev/cli-helpers/v2` for shared CLI helpers (e.g., `clihelpers.LongHelpText()`) and standardized colors.
+  * Import the cli-helpers package with the alias `clihelpers`.
+* Use `go.nwlabs.dev/x/logutils` for logging, and pass the "verbose" flag (e.g., `fVerbosity`) as the parameter.
+* Use `charm.land/lipgloss/v2` for general purpose terminal coloring.
+* Use the `charm.land/<library>/v2` import variants instead of the older `github.com/charmbracelet/` imports.
+
+## Configuration management
+
+* Use `github.com/knadh/koanf` for configuration management. Do not use `github.com/spf13/viper`.
+* Store user configuration files in `$XDG_CONFIG_HOME`. When that environment variable is not set, fall back to the default defined by the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir/latest/) (`$HOME/.config`).
+* Store global configuration files in `/etc/<app>/`.
+
+When a CLI tool accepts configuration from multiple sources, resolve values in this order (highest priority first):
+
+1. CLI flag
+2. Environment variable
+3. Local config file
+4. User config file (in `$XDG_CONFIG_HOME/<app>/`)
+5. Global config file (in `/etc/<app>/`)
+
+A higher-priority source always overrides a lower-priority one.
 
 ## Command conventions
 
@@ -103,3 +124,4 @@ package <name>
 * The `// Package <name>` comment is the only code in `doc.go` — no imports, no declarations.
 * The comment must start with `Package <name>` followed by a brief description of the package's purpose.
 * No other file in the package should contain a `package`-level doc comment.
+<!-- @config-manager:end cli-patterns -->

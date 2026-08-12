@@ -1,16 +1,34 @@
 ---
 # To get started with Dependabot version updates, you'll need to specify which
 # package ecosystems to update and where the package manifests are located.
+#
 # Please see the documentation for all configuration options:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+#
+# See this blog post for suggestions for optimizing your config:
+# https://github.blog/security/supply-chain-security/tame-dependabot-group-your-updates-slow-the-cadence-keep-security-fast/
 
 version: 2
 updates:
   - package-ecosystem: github-actions
     directory: /
+    cooldown:
+      default-days: 7
+    groups:
+      monthly-batch:
+        patterns:
+          - '*'
     insecure-external-code-execution: deny
     schedule:
-      interval: daily
+      interval: monthly
+  - package-ecosystem: gomod
+    directory: /
     cooldown:
-      # Not lower than 7 days, please!
       default-days: 7
+    groups:
+      monthly-batch:
+        patterns:
+          - '*'
+    insecure-external-code-execution: deny
+    schedule:
+      interval: monthly

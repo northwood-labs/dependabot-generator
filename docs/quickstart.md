@@ -71,6 +71,17 @@ The config layer resolves three concerns: header comment text, directory ignore 
 * Prepends the `---` YAML document separator.
 * Inserts formatted header comment (if configured) between the separator and the body.
 
+### Comment formatting
+
+When a header comment is configured, `FormatComment` processes the raw text:
+
+* Strips trailing newlines and returns empty for whitespace-only input.
+* Lines already prefixed with `#` are preserved unchanged.
+* Short lines (within 78 characters) get a `# ` prefix.
+* Lines containing URLs are preserved intact regardless of length.
+* Long lines without URLs are reflowed via `WrapLine` to fit within the 78-character content limit.
+* Internal blank lines become bare `#` lines.
+
 ## Module roles
 
 | Module                   | Responsibility                                              |
@@ -87,7 +98,7 @@ The config layer resolves three concerns: header comment text, directory ignore 
 | `lib/scanner/`           | Core detection and generation logic, decoupled from CLI     |
 | `lib/scanner/scanner.go` | `Scan()`, `Generate()`, pattern evaluation, precedence      |
 | `lib/scanner/rules.go`   | Data-driven ecosystem detection table (32 rules)            |
-| `lib/scanner/comment.go` | `FormatComment()` for YAML header comment formatting        |
+| `lib/scanner/comment.go` | `FormatComment()`, `WrapLine()` for YAML header comments    |
 | `src/`                   | Test fixture directories (one per ecosystem)                |
 | `docs/`                  | Project documentation                                       |
 
@@ -125,6 +136,10 @@ Sorting results before YAML encoding guarantees that identical inputs always pro
 
 The `lib/scanner` package has no dependency on Cobra, Fang, or any terminal library. Tests run without CLI bootstrapping, and the scanner can be imported as a library by other tools.
 
+### Config isolation from scanner
+
+The `lib/config` package handles TOML parsing and merge logic without knowing about scanning or YAML generation. The `cmd` layer is the only place that connects config output to scanner input, keeping both libraries independently testable and reusable.
+
 ### Property-based testing
 
 The test suite uses `pgregory.net/rapid` for property-based testing alongside traditional unit tests and fixture-based integration tests. This provides coverage of edge cases that hand-written tests miss, and verifies invariants (sort stability, precedence correctness, round-trip encoding) across random inputs.
@@ -136,3 +151,4 @@ The test suite uses `pgregory.net/rapid` for property-based testing alongside tr
 * **Ecosystem rule staleness.** The 32 rules are derived from Dependabot's source code. If Dependabot adds new ecosystems or changes detection patterns, the tool needs a manual update.
 * **No output validation.** The generated YAML is not validated against GitHub's Dependabot schema. Malformed output from bugs would only surface when GitHub rejects the file.
 * **Header size limit.** The 8 KiB cap on resolved header text is an arbitrary guard. If a user hits this limit, the error message explains it, but there is no override mechanism.
+* **Config ignore-dirs replacement semantics.** When a higher-priority config file specifies `ignore-dirs`, it replaces the entire list rather than appending. A local `.depgen.toml` that adds one custom pattern must also re-declare all the built-in defaults.

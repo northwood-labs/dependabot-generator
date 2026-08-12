@@ -10,7 +10,7 @@ The application has a single binary entry point:
 
 The `main.go` file is intentionally minimal. All logic lives in the `cmd`, `lib/config`, and `lib/scanner` packages so that the CLI is testable without executing a binary.
 
-The scanner package exposes two public entry points for programmatic use:
+The scanner package exposes three public entry points for programmatic use:
 
 | Function                              | Purpose                                     |
 |---------------------------------------|---------------------------------------------|
@@ -130,18 +130,18 @@ Entirely delegated to `clihelpers.VersionScreen()` from the shared `go.nwlabs.de
 
 ### `lib/scanner/` package
 
-| File                       | Exports / Key Symbols     | Responsibility                   |
-|----------------------------|---------------------------|----------------------------------|
-| `doc.go`                   | (package comment)         | Documents the scanner package    |
-| `scanner.go`               | `Scan`, `Generate`, types | Core logic and YAML encoding     |
-| `rules.go`                 | `ecosystemRules`          | Detection rule table (32 rules)  |
-| `comment.go`               | `FormatComment`           | Header comment formatting        |
-| `scanner_test.go`          | (tests)                   | Unit tests for scan logic        |
-| `scanner_property_test.go` | (tests)                   | Property-based fuzz tests        |
-| `generate_test.go`         | (tests)                   | YAML generation tests            |
-| `integration_test.go`      | (tests)                   | Fixture-based integration tests  |
-| `comment_test.go`          | (tests)                   | Unit tests for comment formatter |
-| `comment_property_test.go` | (tests)                   | Property-based comment tests     |
+| File                       | Exports / Key Symbols       | Responsibility                   |
+|----------------------------|-----------------------------|----------------------------------|
+| `doc.go`                   | (package comment)           | Documents the scanner package    |
+| `scanner.go`               | `Scan`, `Generate`, types   | Core logic and YAML encoding     |
+| `rules.go`                 | `ecosystemRules`            | Detection rule table (32 rules)  |
+| `comment.go`               | `FormatComment`, `WrapLine` | Header comment formatting        |
+| `scanner_test.go`          | (tests)                     | Unit tests for scan logic        |
+| `scanner_property_test.go` | (tests)                     | Property-based fuzz tests        |
+| `generate_test.go`         | (tests)                     | YAML generation tests            |
+| `integration_test.go`      | (tests)                     | Fixture-based integration tests  |
+| `comment_test.go`          | (tests)                     | Unit tests for comment formatter |
+| `comment_property_test.go` | (tests)                     | Property-based comment tests     |
 
 ### `src/` directory (test fixtures)
 
@@ -188,7 +188,7 @@ After file-based resolution, environment variables and CLI flags override in asc
 **Built-in defaults** (applied when no config overrides):
 
 * `ignore-dirs`: `["node_modules", ".venv", "venv", "vendor", ".*"]`
-* `ecosystems._default`: monthly schedule, deny insecure code execution, 7-day cooldown, batch all patterns.
+* `ecosystems._default`: monthly schedule, 3-day cooldown, batch all patterns.
 * `header`: URL to GitHub's Dependabot configuration docs.
 
 ### Path validation (3-step)
@@ -250,6 +250,20 @@ A post-processing pass suppresses generic ecosystems when a more specific tool i
 **Header comment**: When `CommentText` is non-empty, `FormatComment` is called to convert raw text into `#`-prefixed YAML comment lines, which are inserted between the `---` separator and the YAML body.
 
 **Side effects**: None. Generates a string; does not write to disk.
+
+### Comment formatting
+
+The `FormatComment` function processes raw header text into YAML-compatible comment lines:
+
+* Strips trailing newlines from input.
+* Returns empty string for whitespace-only input (no comment block generated).
+* Lines already starting with `#` are preserved unchanged (allows pre-formatted comments).
+* Non-`#` lines within 78 characters get a `# ` prefix.
+* Lines containing URLs are prefixed without wrapping (URLs are never broken).
+* Long lines without URLs are reflowed via `WrapLine` at the 78-character content limit (80 total = 2 prefix + 78 content).
+* Internal blank lines become bare `#` lines to preserve visual structure.
+
+The `WrapLine` function performs word-based line wrapping at the specified character limit, with a URL exception that preserves URL-containing lines intact regardless of length.
 
 ### Header file validation
 
@@ -335,7 +349,7 @@ The entire detection engine is driven by the `ecosystemRules` table. Benefits:
 
 ### Explicit sentinel errors
 
-Each failure mode has a distinct sentinel error type. This enables the CLI to present targeted user guidance rather than generic "scan failed" messages. The sentinels span both packages:
+Each failure mode has a distinct sentinel error type. This enables the CLI to present targeted user guidance rather than generic "scan failed" messages. The sentinels span three packages:
 
 * Scanner: `ErrRootNotExist`, `ErrRootNotDir`, `ErrRootNotReadable`, `ErrGlobEval`, `ErrYAMLMarshal`
 * Config: `ErrConfigParse`, `ErrConfigRead`
@@ -381,3 +395,7 @@ The test suite uses `pgregory.net/rapid` for property-based testing alongside tr
 * Coverage of edge cases that hand-written tests miss.
 * Verification of invariants (sort stability, precedence correctness, round-trip encoding) across random inputs.
 * Confidence that the system handles arbitrary ecosystem combinations correctly.
+
+### Comment formatting design
+
+The `FormatComment` function applies a URL-aware wrapping strategy because YAML header comments often contain documentation links. Breaking URLs across lines would render them unclickable in editors and terminals. The 78-character content limit produces 80-character total lines (matching the `# ` prefix), which is the traditional terminal width for maximum compatibility.

@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`023a178`](https://github.com/northwood-labs/dependabot-generator/commit/023a1782311064a1f2d85f1e06f49a1532c40973): Remove MCP config from version control. ([@skyzyx](https://github.com/skyzyx))
+* [`c7e2234`](https://github.com/northwood-labs/dependabot-generator/commit/c7e22342e15cf5abee888ef71cbfd6cfabf2cf20): Standardize configuration formatting and enhance Dependabot automation. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

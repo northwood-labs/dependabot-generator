@@ -1,6 +1,9 @@
 ---
-inclusion: fileMatch
-fileMatchPattern: "**/*.go"
+# @config-manager:start cli-patterns-frontmatter
+inclusion: auto
+name: go-cli-application
+description: Patterns to use when creating or updating a Go-based CLI or TUI application.
+# @config-manager:end cli-patterns-frontmatter
 ---
 
 <!-- @config-manager:start cli-patterns -->

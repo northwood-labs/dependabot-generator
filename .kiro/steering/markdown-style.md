@@ -1,11 +1,15 @@
 ---
+# @config-manager:start zdp-frontmatter
 inclusion: fileMatch
 fileMatchPattern: "**/*.md"
+# @config-manager:end zdp-frontmatter
 ---
 
 # Markdown Style Guide
 
+<!-- @config-manager:start overview -->
 This project enforces Markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
+<!-- @config-manager:end overview -->
 
 ## Indentation and whitespace
 

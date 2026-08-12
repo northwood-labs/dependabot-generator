@@ -15,8 +15,8 @@
   destination = '.kiro/steering/go-code-conventions.md'
 
 [[files]]
-  stub = 'configs/stubs/.kiro/steering/go-cli-application.md'
-  source = 'configs/templates/.kiro/steering/go-cli-application.md'
+  stub        = 'configs/stubs/.kiro/steering/go-cli-application.md'
+  source      = 'configs/templates/.kiro/steering/go-cli-application.md'
   destination = '.kiro/steering/go-cli-application.md'
 
   #-------------------------------------------------------------------------------

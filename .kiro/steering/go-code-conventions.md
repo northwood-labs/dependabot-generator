@@ -1,10 +1,12 @@
 ---
+# @config-manager:start zdp-frontmatter
 inclusion: fileMatch
 fileMatchPattern: "**/*.go"
+# @config-manager:end zdp-frontmatter
 ---
 
 <!-- @config-manager:start zdp -->
-# Zero Diagnostics Policy
+# Go Zero Diagnostics
 
 All Go source files must be free of diagnostic errors and warnings. Code is not considered complete until `getDiagnostics` reports zero issues for every file touched during a change.
 

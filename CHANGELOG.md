@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- ZZZ -->:gear: Miscellaneous tasks
+### :tractor: Refactor
 
-* [`ce041e1`](https://github.com/northwood-labs/dependabot-generator/commit/ce041e1ac3406ff9251407858929e4442d3d0d4b): Adjust CodeQL and OSV scanner workflow configuration. ([@skyzyx](https://github.com/skyzyx))
+* [`b095fd2`](https://github.com/northwood-labs/dependabot-generator/commit/b095fd211da4c3903862eb142bb02730db65d678): Migrate TOML library and refactor scanner code. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

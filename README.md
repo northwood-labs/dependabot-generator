@@ -75,7 +75,7 @@ ignore-dirs = ["node_modules", "vendor", ".venv", ".*"]
 # Per-ecosystem default fields injected into every update entry.
 [ecosystems._default]
 "schedule.interval" = "monthly"
-"insecure-external-code-execution" = "deny"
+"cooldown.default-days" = 14
 ```
 
 Without a config file, the tool applies built-in defaults that exclude common vendored directories and set a monthly schedule.

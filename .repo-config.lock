@@ -106,6 +106,21 @@ last_sync_time = '2026-08-11T15:22:20Z'
 source_hash = ''
 dest_hash = 'sha256:8b99cde1f1b1b81c0e067c5d6953dd5c7e850e7978c6a3fcfc3af62574c5463e'
 
+[files.'.kiro/steering/add-code-comments.md']
+last_sync_time = '2026-08-12T04:37:28Z'
+source_hash = ''
+dest_hash = 'sha256:db185b3f78e456ea00542028c99657fa2941d418bf848afa724598925e875cea'
+
+[files.'.kiro/steering/comprehensive-and-quickstart.md']
+last_sync_time = '2026-08-12T04:37:28Z'
+source_hash = ''
+dest_hash = 'sha256:f1637efaeb4afa93c5e31ef36a89c9cda92405c0adff192dd582e25edaa258b0'
+
+[files.'.kiro/steering/generate-agents-md.md']
+last_sync_time = '2026-08-12T04:37:28Z'
+source_hash = ''
+dest_hash = 'sha256:fd8dfc21179f8a200fbdec76b31a618a1dfcc56d0830d3bb64545d2939a6587a'
+
 [files.'.kiro/steering/go-cli-application.md']
 last_sync_time = '2026-08-12T04:02:34Z'
 source_hash = ''
@@ -120,6 +135,11 @@ dest_hash = 'sha256:e179ba71eef6e29d3a66435d8fb6b794e6a16c659585da5347621bbeebb1
 last_sync_time = '2026-08-12T04:02:34Z'
 source_hash = ''
 dest_hash = 'sha256:bb24d2341efd88981131f70e2d12e9425c9e7bedd5021c2d917bcff2b521c6db'
+
+[files.'.kiro/steering/root-level-readme.md']
+last_sync_time = '2026-08-12T04:37:28Z'
+source_hash = ''
+dest_hash = 'sha256:278ccae950e41ea7331f948fed8f04525e38649902c9daf358829bdece521031'
 
 [files.'.kirograph/']
 last_sync_time = '2026-08-10T19:42:53Z'

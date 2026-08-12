@@ -7,10 +7,13 @@ header = """
 # package ecosystems to update and where the package manifests are located.
 #
 # Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+#   https://bit.ly/4qeBiwL
 #
 # See this blog post for suggestions for optimizing your config:
-# https://github.blog/security/supply-chain-security/tame-dependabot-group-your-updates-slow-the-cadence-keep-security-fast/
+#   https://bit.ly/4zaBEZ4
+#
+# Regenerate with:
+#   dependabot-generator run > .github/dependabot.yml
 """
 
 # ─── Ignore Directories ──────────────────────────────────────────────────────
@@ -18,14 +21,7 @@ header = """
 # skipped during the scan. Uses filepath.Match semantics.
 # Default (when omitted): ["node_modules", ".venv", "venv", "vendor", ".*"]
 
-ignore-dirs = [
-  "src",
-  "node_modules",
-  ".venv",
-  "venv",
-  "vendor",
-  ".*",
-]
+ignore-dirs = [".*", ".venv", "node_modules", "src", "vendor", "venv"]
 
 # ─── Ecosystem Default Values ─────────────────────────────────────────────────
 # Per-ecosystem fields injected into each generated update entry. Keys use

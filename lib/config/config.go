@@ -58,10 +58,9 @@ var (
 	DefaultEcosystemSettings = map[string]EcosystemConfig{
 		DefaultEcosystemKey: {
 			Fields: map[string]any{
-				"insecure-external-code-execution": "deny",
-				"schedule.interval":                "monthly",
-				"cooldown.default-days":            7,
-				"groups.monthly-batch.patterns":    []string{"*"},
+				"schedule.interval":     "monthly",
+				"cooldown.default-days": 3, // lint:allow_raw_number
+				"groups.batch.patterns": []string{"*"},
 			},
 		},
 	}

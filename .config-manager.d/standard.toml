@@ -20,7 +20,7 @@
   destination = '.dcignore'
 
 [[files]]
-  stub = 'configs/stubs/depgen.toml'
+  stub        = 'configs/stubs/depgen.toml'
   destination = '.depgen.toml'
 
 # EditorConfig definition

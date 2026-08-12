@@ -155,6 +155,6 @@ exclude = [
 
 exclude_path = [
   # @config-manager:start filepath-excludes
-  "src/maven/a/pom\\.xml$",
+  "pom\\.xml$",
   # @config-manager:end filepath-excludes
 ]

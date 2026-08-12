@@ -349,8 +349,8 @@
 [MD044]
   # @config-manager:start md044
   # proper-names
-  enabled       = true
-  code-blocks   = false
+  enabled = true
+  code-blocks = false
   html-elements = false
   html-comments = true
   # @config-manager:end md044

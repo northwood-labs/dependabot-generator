@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :tractor: Refactor
+### :closed_lock_with_key: Security
 
-* [`b095fd2`](https://github.com/northwood-labs/dependabot-generator/commit/b095fd211da4c3903862eb142bb02730db65d678): Migrate TOML library and refactor scanner code. ([@skyzyx](https://github.com/skyzyx))
+* [`a5843ec`](https://github.com/northwood-labs/dependabot-generator/commit/a5843ec27fe18df86831d8c110590308cb014263): Integrated KiroGraph for code graph and knowledge management. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

@@ -47,9 +47,9 @@ source_hash = ''
 dest_hash = 'sha256:8270a3751b6da3c012a2e10dba6c28bd03b49042c459729fc66bda15b4126994'
 
 [files.'.github/workflows/codeql.yml']
-last_sync_time = '2026-08-11T15:22:20Z'
+last_sync_time = '2026-08-12T05:47:21Z'
 source_hash = ''
-dest_hash = 'sha256:37727d7881f5085f6ef7ea024876d1c6a31c7b5b218dcd2b4ce58596fb987c1c'
+dest_hash = 'sha256:b31ed8bb8681d0cd7d4d403e0b8dd2918800f8041565f9b229ef8747265f18a5'
 
 [files.'.github/workflows/dependabot-auto-merge.yml']
 last_sync_time = '2026-08-11T15:22:20Z'
@@ -62,7 +62,7 @@ source_hash = ''
 dest_hash = 'sha256:b4699cb8dc35d7a2b3228000f4ed3d8ccb923d681c0d08acd2464e801f0f0962'
 
 [files.'.github/workflows/osv-scanner.yml']
-last_sync_time = '2026-08-11T15:22:20Z'
+last_sync_time = '2026-08-12T05:47:21Z'
 source_hash = ''
 dest_hash = 'sha256:ebdb242909f52effccc367d76349ae9109caf8426fb7266e1c6ef118bf7f56a3'
 

@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- 0 -->:rocket: Features
+### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`c45d68a`](https://github.com/northwood-labs/dependabot-generator/commit/c45d68aed56fa8a6d81983921d5450871e47b288): Add layered configuration with header comments and ecosystem defaults. ([@skyzyx](https://github.com/skyzyx))
+* [`1e9e381`](https://github.com/northwood-labs/dependabot-generator/commit/1e9e3817cc2f58b59b857c122b0041c1192c0460): Add LLM steering documents and standardize configuration. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- ZZZ -->:gear: Miscellaneous Tasks
+### :tractor: Refactor
 
-* [`1e9e381`](https://github.com/northwood-labs/dependabot-generator/commit/1e9e3817cc2f58b59b857c122b0041c1192c0460): Add LLM steering documents and standardize configuration. ([@skyzyx](https://github.com/skyzyx))
+* [`79e7d1a`](https://github.com/northwood-labs/dependabot-generator/commit/79e7d1a9b6030cd547e7d751cb8f86ea7ae7b55f): Updated Dependabot configuration defaults and documentation. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

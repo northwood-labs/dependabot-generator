@@ -21,7 +21,6 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
-	"sort"
 	"strconv"
 	"strings"
 
@@ -127,7 +126,7 @@ type (
 	// get merged into the YAML output after directory.
 	dependabotUpdate struct {
 		ExtraFields      map[string]any `yaml:"-"`
-		PackageEcosystem string         `yaml:"package-ecosystem"`
+		PackageEcosystem string         `yaml:"package-ecosystem"` // lint:allow_formatting
 		Directory        string         `yaml:"directory"`
 	}
 )
@@ -145,41 +144,9 @@ type (
 // directory's base name using [filepath.Match] semantics. Passing nil or an
 // empty slice preserves the original behavior (no directories excluded).
 func Scan(path string, ignoreDirs []string) ([]ScanResult, error) {
-	// Multi-step validation: Stat catches non-existence, IsDir catches "user
-	// passed a file," and Open/Close catches permission-denied. Each step
-	// produces a different sentinel so the CLI can give specific guidance.
-	info, err := os.Stat(path)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, fmt.Errorf("%w: %s", ErrRootNotExist, path)
-		}
-
-		return nil, fmt.Errorf("%w: %s: %w", ErrRootNotReadable, path, err)
-	}
-
-	if !info.IsDir() {
-		return nil, fmt.Errorf("%w: %s", ErrRootNotDir, path)
-	}
-
-	// Open/Close proves we can actually read directory entries, catching cases
-	// where Stat succeeds (metadata is readable) but listing contents would
-	// fail.
-	dir, openErr := os.Open(path) // lint:allow_possible_insecure
-	if openErr != nil {
-		return nil, fmt.Errorf("%w: %s: %w", ErrRootNotReadable, path, openErr)
-	}
-
-	closeErr := dir.Close()
-	if closeErr != nil {
-		return nil, fmt.Errorf("%w: %s: %w", ErrRootNotReadable, path, closeErr)
-	}
-
-	// Resolve to absolute before walking so that all glob evaluations use
-	// fully-qualified paths — fileglob requires absolute patterns to function
-	// correctly.
-	absRoot, absErr := filepath.Abs(path)
-	if absErr != nil {
-		return nil, fmt.Errorf("%w: %s: %w", ErrRootNotReadable, path, absErr)
+	absRoot, validateErr := validateRootPath(path)
+	if validateErr != nil {
+		return nil, fmt.Errorf("validating scan root: %w", validateErr)
 	}
 
 	var results []ScanResult
@@ -197,26 +164,13 @@ func Scan(path string, ignoreDirs []string) ([]ScanResult, error) {
 			return nil
 		}
 
-		// Check if this directory should be excluded based on the
-		// caller-provided ignore patterns. The root directory itself
-		// (relPath == ".") is never excluded because skipping it would
-		// abort the entire walk.
-		if len(ignoreDirs) > 0 && relPath != "." {
-			dirName := filepath.Base(relPath)
-
-			for _, pattern := range ignoreDirs {
-				matched, matchErr := filepath.Match(pattern, dirName)
-				if matchErr != nil {
-					return fmt.Errorf(
-						"invalid ignore pattern %q: %w",
-						pattern, matchErr,
-					)
-				}
-
-				if matched {
-					return fs.SkipDir
-				}
+		skipErr := shouldSkipDir(relPath, ignoreDirs)
+		if skipErr != nil {
+			if errors.Is(skipErr, fs.SkipDir) {
+				return fs.SkipDir
 			}
+
+			return fmt.Errorf("checking ignore patterns: %w", skipErr)
 		}
 
 		fullDir := filepath.Join(absRoot, relPath)
@@ -252,6 +206,81 @@ func Scan(path string, ignoreDirs []string) ([]ScanResult, error) {
 	results = resolvePrecedence(results)
 
 	return results, nil
+}
+
+// validateRootPath performs multi-step validation of the scan root directory.
+// It checks existence, confirms it is a directory, and verifies read access.
+// On success it returns the absolute path for use during the walk.
+func validateRootPath(path string) (string, error) {
+	info, err := os.Stat(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return "", fmt.Errorf("%w: %s", ErrRootNotExist, path)
+		}
+
+		return "", fmt.Errorf("%w: %s: %w", ErrRootNotReadable, path, err)
+	}
+
+	if !info.IsDir() {
+		return "", fmt.Errorf("%w: %s", ErrRootNotDir, path)
+	}
+
+	// Open/Close proves we can actually read directory entries, catching
+	// cases where Stat succeeds (metadata is readable) but listing
+	// contents would fail.
+	dir, openErr := os.Open(path) // lint:allow_possible_insecure
+	if openErr != nil {
+		return "", fmt.Errorf(
+			"%w: %s: %w", ErrRootNotReadable, path, openErr,
+		)
+	}
+
+	closeErr := dir.Close()
+	if closeErr != nil {
+		return "", fmt.Errorf(
+			"%w: %s: %w", ErrRootNotReadable, path, closeErr,
+		)
+	}
+
+	// Resolve to absolute before walking so that all glob evaluations
+	// use fully-qualified paths — fileglob requires absolute patterns to
+	// function correctly.
+	absRoot, absErr := filepath.Abs(path)
+	if absErr != nil {
+		return "", fmt.Errorf(
+			"%w: %s: %w", ErrRootNotReadable, path, absErr,
+		)
+	}
+
+	return absRoot, nil
+}
+
+// shouldSkipDir checks whether a directory should be excluded based on the
+// caller-provided ignore patterns. The root directory (relPath == ".") is
+// never excluded because skipping it would abort the entire walk. Returns
+// [fs.SkipDir] when the directory matches an ignore pattern, nil otherwise.
+func shouldSkipDir(relPath string, ignoreDirs []string) error {
+	if len(ignoreDirs) == 0 || relPath == "." {
+		return nil
+	}
+
+	dirName := filepath.Base(relPath)
+
+	for _, pattern := range ignoreDirs {
+		matched, matchErr := filepath.Match(pattern, dirName)
+		if matchErr != nil {
+			return fmt.Errorf(
+				"invalid ignore pattern %q: %w",
+				pattern, matchErr,
+			)
+		}
+
+		if matched {
+			return fs.SkipDir
+		}
+	}
+
+	return nil
 }
 
 // Generate converts scan results into a Dependabot v2 YAML configuration
@@ -535,7 +564,8 @@ func buildYAMLDocument(updates []dependabotUpdate) *yaml.Node {
 	}
 
 	// version: 2
-	rootMapping.Content = append(rootMapping.Content,
+	rootMapping.Content = append(
+		rootMapping.Content,
 		&yaml.Node{Kind: yaml.ScalarNode, Value: "version", Tag: "!!str"},
 		&yaml.Node{Kind: yaml.ScalarNode, Value: "2", Tag: "!!int"},
 	)
@@ -552,7 +582,8 @@ func buildYAMLDocument(updates []dependabotUpdate) *yaml.Node {
 		updatesSeq.Content = append(updatesSeq.Content, entryNode)
 	}
 
-	rootMapping.Content = append(rootMapping.Content,
+	rootMapping.Content = append(
+		rootMapping.Content,
 		&yaml.Node{Kind: yaml.ScalarNode, Value: "updates", Tag: "!!str"},
 		updatesSeq,
 	)
@@ -569,14 +600,10 @@ func buildUpdateNode(u *dependabotUpdate) *yaml.Node {
 		Tag:  "!!map",
 	}
 
-	// package-ecosystem.
-	mapping.Content = append(mapping.Content,
+	mapping.Content = append(
+		mapping.Content,
 		&yaml.Node{Kind: yaml.ScalarNode, Value: "package-ecosystem", Tag: "!!str"},
 		&yaml.Node{Kind: yaml.ScalarNode, Value: u.PackageEcosystem, Tag: "!!str"},
-	)
-
-	// directory.
-	mapping.Content = append(mapping.Content,
 		&yaml.Node{Kind: yaml.ScalarNode, Value: "directory", Tag: "!!str"},
 		&yaml.Node{Kind: yaml.ScalarNode, Value: u.Directory, Tag: "!!str"},
 	)
@@ -590,10 +617,11 @@ func buildUpdateNode(u *dependabotUpdate) *yaml.Node {
 			keys = append(keys, k)
 		}
 
-		sort.Strings(keys)
+		slices.Sort(keys)
 
 		for _, k := range keys {
-			mapping.Content = append(mapping.Content,
+			mapping.Content = append(
+				mapping.Content,
 				&yaml.Node{Kind: yaml.ScalarNode, Value: k, Tag: "!!str"},
 				valueToNode(expanded[k]),
 			)
@@ -665,10 +693,11 @@ func mapToNode(m map[string]any) *yaml.Node {
 		keys = append(keys, k)
 	}
 
-	sort.Strings(keys)
+	slices.Sort(keys)
 
 	for _, k := range keys {
-		node.Content = append(node.Content,
+		node.Content = append(
+			node.Content,
 			&yaml.Node{Kind: yaml.ScalarNode, Value: k, Tag: "!!str"},
 			valueToNode(m[k]),
 		)
@@ -701,7 +730,8 @@ func stringSliceToNode(s []string) *yaml.Node {
 	}
 
 	for _, item := range s {
-		node.Content = append(node.Content,
+		node.Content = append(
+			node.Content,
 			&yaml.Node{Kind: yaml.ScalarNode, Value: item, Tag: "!!str"},
 		)
 	}

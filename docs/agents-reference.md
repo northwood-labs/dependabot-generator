@@ -275,7 +275,7 @@ Markdown formatting rules:
 4. Return wrapped errors, never raw strings
 5. Write property tests where input space is large/varied
 
-### Creating a Kiro spec
+### Creating a kiro spec
 
 1. Create `.kiro/specs/<feature>/` directory
 2. Add `requirements.md` with user stories and acceptance criteria

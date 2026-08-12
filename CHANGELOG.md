@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- ZZZ -->:gear: Miscellaneous Tasks
+### <!-- ZZZ -->:gear: Miscellaneous tasks
 
 * [`ce041e1`](https://github.com/northwood-labs/dependabot-generator/commit/ce041e1ac3406ff9251407858929e4442d3d0d4b): Adjust CodeQL and OSV scanner workflow configuration. ([@skyzyx](https://github.com/skyzyx))
 

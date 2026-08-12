@@ -242,9 +242,9 @@ The `FormatComment` function applies these rules in order:
 4. For each line:
    * If it already starts with `#`, keep it unchanged.
    * If it does not start with `#`:
-     * If it is ≤78 characters (80 minus `# ` prefix), prepend `# ` and emit.
-     * If it contains a URL, prepend `# ` and emit unchanged (URL exception).
-     * If it exceeds 78 characters with no URL, reflow/wrap to fit within the 78-character content limit (80 total with `# ` prefix), filling lines optimally.
+     * If it is ≤78 characters (80 minus `#` prefix), prepend `#` and emit.
+     * If it contains a URL, prepend `#` and emit unchanged (URL exception).
+     * If it exceeds 78 characters with no URL, reflow/wrap to fit within the 78-character content limit (80 total with `#` prefix), filling lines optimally.
 5. Internal blank lines become bare `#` lines.
 
 ### Directory exclusion logic
@@ -271,12 +271,11 @@ During `Generate`, each `dependabotUpdate` entry is enriched:
 
 Each period (`.`) in a setting key becomes a level of YAML nesting. The final segment is the leaf key, and the value becomes that leaf's value.
 
-| TOML Setting Key                   | Value       | YAML Output                                              |
-|------------------------------------|-------------|----------------------------------------------------------|
-| `insecure-external-code-execution` | `"deny"`    | `insecure-external-code-execution: deny` (flat, no dots) |
-| `schedule.interval`                | `"monthly"` | `schedule:\n  interval: monthly`                         |
-| `cooldown.default-days`            | `7`         | `cooldown:\n  default-days: 7`                           |
-| `groups.monthly-batch.patterns`    | `["*"]`     | `groups:\n  monthly-batch:\n    patterns:\n      - "*"`  |
+| TOML Setting Key                | Value       | YAML Output                                             |
+|---------------------------------|-------------|---------------------------------------------------------|
+| `schedule.interval`             | `"monthly"` | `schedule:\n  interval: monthly`                        |
+| `cooldown.default-days`         | `7`         | `cooldown:\n  default-days: 7`                          |
+| `groups.monthly-batch.patterns` | `["*"]`     | `groups:\n  monthly-batch:\n    patterns:\n      - "*"` |
 
 **TOML input (from config or built-in defaults):**
 
@@ -293,7 +292,6 @@ insecure-external-code-execution = "deny"
 ```yaml
   - package-ecosystem: gomod
     directory: /
-    insecure-external-code-execution: deny
     schedule:
       interval: monthly
     cooldown:
@@ -312,79 +310,79 @@ _A property is a characteristic or behavior that should hold true across all val
 
 _For any_ combination of configuration sources (CLI flag, environment variable, local config, user config, global config) where at least one provides a non-empty header value, the resolved Comment_Text SHALL equal the value from the highest-priority non-empty source.
 
-**Validates: Requirements 1.2, 4.2, 4.3, 5.2, 5.3, 5.4, 6.1, 6.2, 6.3**
+**Validates: Requirements 1.2, 4.2, 4.3, 5.2, 5.3, 5.4, 6.1, 6.2, 6.3.**
 
 ### Property 2: Directory exclusion prevents results from ignored paths
 
 _For any_ directory tree and any set of ignore patterns, scanning with those patterns SHALL produce no `ScanResult` entries whose `Directory` field matches or is a child of an ignored directory.
 
-**Validates: Requirements 5.5**
+**Validates: Requirements 5.5.**
 
 ### Property 3: Wrapped lines respect 80-character limit
 
-_For any_ prose string that does not contain a URL, all output lines produced by `FormatComment` SHALL be 80 characters or fewer (including the `# ` prefix).
+_For any_ prose string that does not contain a URL, all output lines produced by `FormatComment` SHALL be 80 characters or fewer (including the `#` prefix).
 
-**Validates: Requirements 7.1, 7.4**
+**Validates: Requirements 7.1, 7.4.**
 
 ### Property 4: URLs are preserved intact during wrapping
 
 _For any_ input line containing a URL, the formatted output SHALL contain that URL on a single line without splitting or truncation.
 
-**Validates: Requirements 7.2**
+**Validates: Requirements 7.2.**
 
 ### Property 5: Short lines are preserved and wrapping fills optimally
 
-_For any_ input line that is already ≤78 characters (content, excluding prefix), `FormatComment` SHALL emit that line unchanged (with only the `# ` prefix added). Additionally, no line SHALL wrap early if the next word would fit within the 80-character limit.
+_For any_ input line that is already ≤78 characters (content, excluding prefix), `FormatComment` SHALL emit that line unchanged (with only the `#` prefix added). Additionally, no line SHALL wrap early if the next word would fit within the 80-character limit.
 
-**Validates: Requirements 7.3, 7.5**
+**Validates: Requirements 7.3, 7.5.**
 
 ### Property 6: Size limit enforcement on raw input
 
 _For any_ string of N bytes, when N ≤ 8192 the size validation SHALL pass, and when N > 8192 the size validation SHALL return an error. The measurement is performed on the raw input before formatting.
 
-**Validates: Requirements 8.1, 8.3**
+**Validates: Requirements 8.1, 8.3.**
 
 ### Property 7: Comment prefix normalization is idempotent
 
 _For any_ line of text, applying the prefix normalization function ensures the line starts with `#`. Applying the function a second time to the already-normalized output SHALL produce the same result (idempotence).
 
-**Validates: Requirements 9.1, 9.2, 9.3**
+**Validates: Requirements 9.1, 9.2, 9.3.**
 
 ### Property 8: Trailing newline does not produce empty trailing comment
 
 _For any_ non-whitespace string with one or more trailing newline characters, `FormatComment` SHALL produce output whose last line is not a bare `#` that resulted from the trailing newline.
 
-**Validates: Requirements 9.4**
+**Validates: Requirements 9.4.**
 
 ### Property 9: Comment placement structure
 
 _For any_ non-empty Comment_Text and any valid scan results, the generated output SHALL have the comment block immediately after `---\n` and SHALL have a blank line separating the last comment line from `version: 2`.
 
-**Validates: Requirements 10.1, 10.2**
+**Validates: Requirements 10.1, 10.2.**
 
 ### Property 10: YAML round-trip validity
 
 _For any_ valid Comment_Text string (including empty) and any valid slice of `ScanResult`, parsing the generated YAML output SHALL yield a valid Dependabot v2 configuration with `version: 2` and an `updates` array whose length equals the input slice length, with matching ecosystem and directory values.
 
-**Validates: Requirements 10.3, 11.2, 12.1**
+**Validates: Requirements 10.3, 11.2, 12.1.**
 
 ### Property 11: All header lines are valid YAML comments
 
 _For any_ non-empty Comment_Text, every line between `---` and the blank line before `version:` in the generated output SHALL begin with `#`.
 
-**Validates: Requirements 12.2**
+**Validates: Requirements 12.2.**
 
 ### Property 12: Whitespace-only input produces no comment
 
 _For any_ string consisting entirely of whitespace characters (spaces, tabs, newlines), `FormatComment` SHALL return an empty string, and `Generate` SHALL produce output with no comment lines.
 
-**Validates: Requirements 13.1**
+**Validates: Requirements 13.1.**
 
 ### Property 13: Internal blank lines become bare comment markers
 
 _For any_ Comment_Text containing internal blank lines (empty lines between non-empty lines), those blank lines SHALL appear as bare `#` lines in the formatted output.
 
-**Validates: Requirements 13.2**
+**Validates: Requirements 13.2.**
 
 ## Error handling
 

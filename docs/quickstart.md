@@ -77,7 +77,7 @@ When a header comment is configured, `FormatComment` processes the raw text:
 
 * Strips trailing newlines and returns empty for whitespace-only input.
 * Lines already prefixed with `#` are preserved unchanged.
-* Short lines (within 78 characters) get a `# ` prefix.
+* Short lines (within 78 characters) get a `#` prefix.
 * Lines containing URLs are preserved intact regardless of length.
 * Long lines without URLs are reflowed via `WrapLine` to fit within the 78-character content limit.
 * Internal blank lines become bare `#` lines.

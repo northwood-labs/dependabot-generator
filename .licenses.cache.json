@@ -1,0 +1,1079 @@
+{
+  "ArtifactID": "sha256:7f6c9350f5bb3b5560dae231b3a05a8a74c7de683026630c8105beed6ab80af5",
+  "ArtifactName": ".",
+  "ArtifactType": "repository",
+  "CreatedAt": "2026-08-11T23:50:47.739167-06:00",
+  "Metadata": {
+    "Author": "Ryan Parman <ryan@ryanparman.com>",
+    "Branch": "main",
+    "Commit": "ce041e1ac3406ff9251407858929e4442d3d0d4b",
+    "CommitMsg": "ci: Adjust CodeQL and OSV scanner workflow configuration.\n\n* Disabled automatic CodeQL result uploads in workflow configuration.\n* Downgraded OSV scanner action from v2.5.0 to v2.3.8.",
+    "Committer": "Ryan Parman <ryan@ryanparman.com>",
+    "RepoURL": "git@github.com:northwood-labs/dependabot-generator.git"
+  },
+  "ReportID": "019ff485-f5bb-7284-9fe2-5ba552e60a9d",
+  "Results": [
+    {
+      "Class": "lang-pkgs",
+      "Packages": [
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "charm.land/fang/v2@v2.0.1",
+            "github.com/BurntSushi/toml@v1.6.0",
+            "github.com/goreleaser/fileglob@v1.4.0",
+            "github.com/lithammer/dedent@v1.1.0",
+            "github.com/spf13/cobra@v1.10.2",
+            "go.nwlabs.dev/cli-helpers/v2@v2.0.0-20260807231415-c1bdb19c311d",
+            "gopkg.in/yaml.v3@v3.0.1",
+            "pgregory.net/rapid@v1.3.0",
+            "github.com/gorilla/css@v1.0.1"
+          ],
+          "ID": "go.nwlabs.dev/dependabot-generator",
+          "Identifier": {
+            "PURL": "pkg:golang/go.nwlabs.dev/dependabot-generator",
+            "UID": "c57cbe12b11e1a5d"
+          },
+          "Name": "go.nwlabs.dev/dependabot-generator",
+          "Relationship": "root"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "charm.land/lipgloss/v2@v2.0.5",
+            "github.com/charmbracelet/colorprofile@v0.4.3",
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/charmbracelet/x/exp/charmtone@v0.0.0-20260811151704-00c6608f106b",
+            "github.com/charmbracelet/x/term@v0.2.2",
+            "github.com/muesli/mango-cobra@v1.3.0",
+            "github.com/muesli/roff@v0.1.0",
+            "github.com/spf13/cobra@v1.10.2",
+            "github.com/spf13/pflag@v1.0.10",
+            "golang.org/x/sys@v0.47.0",
+            "golang.org/x/text@v0.41.0"
+          ],
+          "ID": "charm.land/fang/v2@v2.0.1",
+          "Identifier": {
+            "PURL": "pkg:golang/charm.land/fang/v2@v2.0.1",
+            "UID": "d2a2e20df9fc113b"
+          },
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "charm.land/fang/v2",
+          "Relationship": "direct",
+          "Version": "v2.0.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/BurntSushi/toml@v1.6.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/burntsushi/toml@v1.6.0",
+            "UID": "35a93de6d164dadd"
+          },
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/BurntSushi/toml",
+          "Relationship": "direct",
+          "Version": "v1.6.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/gobwas/glob@v0.2.3"
+          ],
+          "ID": "github.com/goreleaser/fileglob@v1.4.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/goreleaser/fileglob@v1.4.0",
+            "UID": "9ce97da447e0879c"
+          },
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/goreleaser/fileglob",
+          "Relationship": "direct",
+          "Version": "v1.4.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/lithammer/dedent@v1.1.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/lithammer/dedent@v1.1.0",
+            "UID": "32a78038f375306c"
+          },
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/lithammer/dedent",
+          "Relationship": "direct",
+          "Version": "v1.1.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/inconshreveable/mousetrap@v1.1.0",
+            "github.com/spf13/pflag@v1.0.10"
+          ],
+          "ID": "github.com/spf13/cobra@v1.10.2",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/spf13/cobra@v1.10.2",
+            "UID": "d8a4acc453b17d01"
+          },
+          "Licenses": [
+            "Apache-2.0"
+          ],
+          "Name": "github.com/spf13/cobra",
+          "Relationship": "direct",
+          "Version": "v1.10.2"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "charm.land/bubbles/v2@v2.1.1",
+            "charm.land/glamour/v2@v2.0.1",
+            "charm.land/lipgloss/v2@v2.0.5",
+            "charm.land/log/v2@v2.0.0",
+            "github.com/lithammer/dedent@v1.1.0",
+            "github.com/spf13/cobra@v1.10.2",
+            "go.nwlabs.dev/x/arch/v2@v2.0.0-20260805211137-0f40adc35a8a"
+          ],
+          "ID": "go.nwlabs.dev/cli-helpers/v2@v2.0.0-20260807231415-c1bdb19c311d",
+          "Identifier": {
+            "PURL": "pkg:golang/go.nwlabs.dev/cli-helpers/v2@v2.0.0-20260807231415-c1bdb19c311d",
+            "UID": "d9ad396a64256881"
+          },
+          "Name": "go.nwlabs.dev/cli-helpers/v2",
+          "Relationship": "direct",
+          "Version": "v2.0.0-20260807231415-c1bdb19c311d"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "gopkg.in/yaml.v3@v3.0.1",
+          "Identifier": {
+            "PURL": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+            "UID": "dfc5be2d32953afd"
+          },
+          "Licenses": [
+            "Apache-2.0",
+            "MIT"
+          ],
+          "Name": "gopkg.in/yaml.v3",
+          "Relationship": "direct",
+          "Version": "v3.0.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "pgregory.net/rapid@v1.3.0",
+          "Identifier": {
+            "PURL": "pkg:golang/pgregory.net/rapid@v1.3.0",
+            "UID": "ef1045f036bd45c1"
+          },
+          "Licenses": [
+            "MPL-2.0"
+          ],
+          "Name": "pgregory.net/rapid",
+          "Relationship": "direct",
+          "Version": "v1.3.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "charm.land/bubbletea/v2@v2.0.8",
+            "charm.land/lipgloss/v2@v2.0.5",
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/mattn/go-runewidth@v0.0.27",
+            "github.com/rivo/uniseg@v0.4.7"
+          ],
+          "ID": "charm.land/bubbles/v2@v2.1.1",
+          "Identifier": {
+            "PURL": "pkg:golang/charm.land/bubbles/v2@v2.1.1",
+            "UID": "8f697964e24eb3ab"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "charm.land/bubbles/v2",
+          "Relationship": "indirect",
+          "Version": "v2.1.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/charmbracelet/colorprofile@v0.4.3",
+            "github.com/charmbracelet/ultraviolet@v0.0.0-20260811164956-006e29f97886",
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/charmbracelet/x/term@v0.2.2",
+            "github.com/lucasb-eyer/go-colorful@v1.4.1",
+            "github.com/muesli/cancelreader@v0.2.2",
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "charm.land/bubbletea/v2@v2.0.8",
+          "Identifier": {
+            "PURL": "pkg:golang/charm.land/bubbletea/v2@v2.0.8",
+            "UID": "5c73cbf9c8cda06"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "charm.land/bubbletea/v2",
+          "Relationship": "indirect",
+          "Version": "v2.0.8"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "charm.land/lipgloss/v2@v2.0.5",
+            "github.com/alecthomas/chroma/v2@v2.27.0",
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/charmbracelet/x/exp/slice@v0.0.0-20260811151704-00c6608f106b",
+            "github.com/microcosm-cc/bluemonday@v1.0.27",
+            "github.com/yuin/goldmark@v1.8.5",
+            "github.com/yuin/goldmark-emoji@v1.0.6",
+            "golang.org/x/text@v0.41.0"
+          ],
+          "ID": "charm.land/glamour/v2@v2.0.1",
+          "Identifier": {
+            "PURL": "pkg:golang/charm.land/glamour/v2@v2.0.1",
+            "UID": "aacd17a1a3f71329"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "charm.land/glamour/v2",
+          "Relationship": "indirect",
+          "Version": "v2.0.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/charmbracelet/colorprofile@v0.4.3",
+            "github.com/charmbracelet/ultraviolet@v0.0.0-20260811164956-006e29f97886",
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/charmbracelet/x/term@v0.2.2",
+            "github.com/clipperhouse/displaywidth@v0.11.0",
+            "github.com/lucasb-eyer/go-colorful@v1.4.1",
+            "github.com/rivo/uniseg@v0.4.7",
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "charm.land/lipgloss/v2@v2.0.5",
+          "Identifier": {
+            "PURL": "pkg:golang/charm.land/lipgloss/v2@v2.0.5",
+            "UID": "fbc94bec2258a9b3"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "charm.land/lipgloss/v2",
+          "Relationship": "indirect",
+          "Version": "v2.0.5"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "charm.land/lipgloss/v2@v2.0.5",
+            "github.com/charmbracelet/colorprofile@v0.4.3",
+            "github.com/go-logfmt/logfmt@v0.6.1",
+            "golang.org/x/exp@v0.0.0-20260811152304-ee035b5b010f"
+          ],
+          "ID": "charm.land/log/v2@v2.0.0",
+          "Identifier": {
+            "PURL": "pkg:golang/charm.land/log/v2@v2.0.0",
+            "UID": "6b4fdf0a2da06e5e"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "charm.land/log/v2",
+          "Relationship": "indirect",
+          "Version": "v2.0.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/dlclark/regexp2/v2@v2.6.0"
+          ],
+          "ID": "github.com/alecthomas/chroma/v2@v2.27.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/alecthomas/chroma/v2@v2.27.0",
+            "UID": "b40b8f295e0da019"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT",
+            "OFL-1.1"
+          ],
+          "Name": "github.com/alecthomas/chroma/v2",
+          "Relationship": "indirect",
+          "Version": "v2.27.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/aymerick/douceur@v0.2.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/aymerick/douceur@v0.2.0",
+            "UID": "2acfe0651566fe00"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/aymerick/douceur",
+          "Relationship": "indirect",
+          "Version": "v0.2.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/charmbracelet/x/term@v0.2.2",
+            "github.com/lucasb-eyer/go-colorful@v1.4.1",
+            "github.com/xo/terminfo@v1.0.0",
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "github.com/charmbracelet/colorprofile@v0.4.3",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/colorprofile@v0.4.3",
+            "UID": "276d9784a1cf43cc"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/colorprofile",
+          "Relationship": "indirect",
+          "Version": "v0.4.3"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/charmbracelet/colorprofile@v0.4.3",
+            "github.com/charmbracelet/x/ansi@v0.11.8",
+            "github.com/charmbracelet/x/term@v0.2.2",
+            "github.com/charmbracelet/x/termios@v0.1.1",
+            "github.com/charmbracelet/x/windows@v0.2.2",
+            "github.com/clipperhouse/uax29/v2@v2.7.0",
+            "github.com/lucasb-eyer/go-colorful@v1.4.1",
+            "github.com/muesli/cancelreader@v0.2.2",
+            "github.com/rivo/uniseg@v0.4.7",
+            "github.com/xo/terminfo@v1.0.0",
+            "golang.org/x/sync@v0.22.0",
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "github.com/charmbracelet/ultraviolet@v0.0.0-20260811164956-006e29f97886",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/ultraviolet@v0.0.0-20260811164956-006e29f97886",
+            "UID": "9c70ff7fa82136ab"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/ultraviolet",
+          "Relationship": "indirect",
+          "Version": "v0.0.0-20260811164956-006e29f97886"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/clipperhouse/displaywidth@v0.11.0",
+            "github.com/clipperhouse/uax29/v2@v2.7.0",
+            "github.com/lucasb-eyer/go-colorful@v1.4.1",
+            "github.com/mattn/go-runewidth@v0.0.27"
+          ],
+          "ID": "github.com/charmbracelet/x/ansi@v0.11.8",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/x/ansi@v0.11.8",
+            "UID": "1afab161d03d3b38"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/x/ansi",
+          "Relationship": "indirect",
+          "Version": "v0.11.8"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/charmbracelet/x/exp/charmtone@v0.0.0-20260811151704-00c6608f106b",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/x/exp/charmtone@v0.0.0-20260811151704-00c6608f106b",
+            "UID": "ac042f2cd369ffea"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/x/exp/charmtone",
+          "Relationship": "indirect",
+          "Version": "v0.0.0-20260811151704-00c6608f106b"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/charmbracelet/x/exp/slice@v0.0.0-20260811151704-00c6608f106b",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/x/exp/slice@v0.0.0-20260811151704-00c6608f106b",
+            "UID": "e6edf49ff4341348"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/x/exp/slice",
+          "Relationship": "indirect",
+          "Version": "v0.0.0-20260811151704-00c6608f106b"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "github.com/charmbracelet/x/term@v0.2.2",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/x/term@v0.2.2",
+            "UID": "a34557df1a57e8ea"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/x/term",
+          "Relationship": "indirect",
+          "Version": "v0.2.2"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "github.com/charmbracelet/x/termios@v0.1.1",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/x/termios@v0.1.1",
+            "UID": "3acd50682520b45b"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/x/termios",
+          "Relationship": "indirect",
+          "Version": "v0.1.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "github.com/charmbracelet/x/windows@v0.2.2",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/charmbracelet/x/windows@v0.2.2",
+            "UID": "dc35937675578187"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/charmbracelet/x/windows",
+          "Relationship": "indirect",
+          "Version": "v0.2.2"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/clipperhouse/uax29/v2@v2.7.0"
+          ],
+          "ID": "github.com/clipperhouse/displaywidth@v0.11.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/clipperhouse/displaywidth@v0.11.0",
+            "UID": "a7315477e6f3d3f3"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/clipperhouse/displaywidth",
+          "Relationship": "indirect",
+          "Version": "v0.11.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/clipperhouse/uax29/v2@v2.7.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0",
+            "UID": "58654df69a223e05"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/clipperhouse/uax29/v2",
+          "Relationship": "indirect",
+          "Version": "v2.7.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/dlclark/regexp2/v2@v2.6.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/dlclark/regexp2/v2@v2.6.0",
+            "UID": "10c46f774498787b"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/dlclark/regexp2/v2",
+          "Relationship": "indirect",
+          "Version": "v2.6.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/go-logfmt/logfmt@v0.6.1",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/go-logfmt/logfmt@v0.6.1",
+            "UID": "6514e7a18667c9f5"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/go-logfmt/logfmt",
+          "Relationship": "indirect",
+          "Version": "v0.6.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/gobwas/glob@v0.2.3",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/gobwas/glob@v0.2.3",
+            "UID": "e0256496f8845a00"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/gobwas/glob",
+          "Relationship": "indirect",
+          "Version": "v0.2.3"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/gorilla/css@v1.0.1",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/gorilla/css@v1.0.1",
+            "UID": "4ba8fb0a268597e9"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "github.com/gorilla/css",
+          "Relationship": "indirect",
+          "Version": "v1.0.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/inconshreveable/mousetrap@v1.1.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/inconshreveable/mousetrap@v1.1.0",
+            "UID": "95059ce7d698c847"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "Apache-2.0"
+          ],
+          "Name": "github.com/inconshreveable/mousetrap",
+          "Relationship": "indirect",
+          "Version": "v1.1.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/lucasb-eyer/go-colorful@v1.4.1",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/lucasb-eyer/go-colorful@v1.4.1",
+            "UID": "d24211fa1ec57d52"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/lucasb-eyer/go-colorful",
+          "Relationship": "indirect",
+          "Version": "v1.4.1"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/clipperhouse/uax29/v2@v2.7.0"
+          ],
+          "ID": "github.com/mattn/go-runewidth@v0.0.27",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/mattn/go-runewidth@v0.0.27",
+            "UID": "ea9162f638f6ce9d"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/mattn/go-runewidth",
+          "Relationship": "indirect",
+          "Version": "v0.0.27"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/aymerick/douceur@v0.2.0",
+            "golang.org/x/net@v0.57.0"
+          ],
+          "ID": "github.com/microcosm-cc/bluemonday@v1.0.27",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/microcosm-cc/bluemonday@v1.0.27",
+            "UID": "3a3d95ea0d74bd06"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "github.com/microcosm-cc/bluemonday",
+          "Relationship": "indirect",
+          "Version": "v1.0.27"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "golang.org/x/sys@v0.47.0"
+          ],
+          "ID": "github.com/muesli/cancelreader@v0.2.2",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/muesli/cancelreader@v0.2.2",
+            "UID": "29cd4561a85729ef"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/muesli/cancelreader",
+          "Relationship": "indirect",
+          "Version": "v0.2.2"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/muesli/roff@v0.1.0"
+          ],
+          "ID": "github.com/muesli/mango@v0.2.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/muesli/mango@v0.2.0",
+            "UID": "b34b7bf869a1c48"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/muesli/mango",
+          "Relationship": "indirect",
+          "Version": "v0.2.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/muesli/mango@v0.2.0",
+            "github.com/muesli/mango-pflag@v0.2.0",
+            "github.com/muesli/roff@v0.1.0",
+            "github.com/spf13/cobra@v1.10.2"
+          ],
+          "ID": "github.com/muesli/mango-cobra@v1.3.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/muesli/mango-cobra@v1.3.0",
+            "UID": "625823486b0479cf"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/muesli/mango-cobra",
+          "Relationship": "indirect",
+          "Version": "v1.3.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/muesli/mango@v0.2.0",
+            "github.com/muesli/roff@v0.1.0",
+            "github.com/spf13/pflag@v1.0.10"
+          ],
+          "ID": "github.com/muesli/mango-pflag@v0.2.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/muesli/mango-pflag@v0.2.0",
+            "UID": "a25affefe3e41f20"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/muesli/mango-pflag",
+          "Relationship": "indirect",
+          "Version": "v0.2.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/muesli/roff@v0.1.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/muesli/roff@v0.1.0",
+            "UID": "b7d0cbca192a8f4a"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/muesli/roff",
+          "Relationship": "indirect",
+          "Version": "v0.1.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/rivo/uniseg@v0.4.7",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/rivo/uniseg@v0.4.7",
+            "UID": "20b82daebb4a6d9c"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/rivo/uniseg",
+          "Relationship": "indirect",
+          "Version": "v0.4.7"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/spf13/pflag@v1.0.10",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/spf13/pflag@v1.0.10",
+            "UID": "15cc5d78cc84f948"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "github.com/spf13/pflag",
+          "Relationship": "indirect",
+          "Version": "v1.0.10"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "golang.org/x/exp@v0.0.0-20260811152304-ee035b5b010f"
+          ],
+          "ID": "github.com/xo/terminfo@v1.0.0",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/xo/terminfo@v1.0.0",
+            "UID": "f1c61d62160d7dd8"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/xo/terminfo",
+          "Relationship": "indirect",
+          "Version": "v1.0.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "github.com/yuin/goldmark@v1.8.5",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/yuin/goldmark@v1.8.5",
+            "UID": "f42c6d587adc81a4"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/yuin/goldmark",
+          "Relationship": "indirect",
+          "Version": "v1.8.5"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "github.com/yuin/goldmark@v1.8.5"
+          ],
+          "ID": "github.com/yuin/goldmark-emoji@v1.0.6",
+          "Identifier": {
+            "PURL": "pkg:golang/github.com/yuin/goldmark-emoji@v1.0.6",
+            "UID": "ebfda8a4a2c6f98"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "MIT"
+          ],
+          "Name": "github.com/yuin/goldmark-emoji",
+          "Relationship": "indirect",
+          "Version": "v1.0.6"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "go.nwlabs.dev/x/arch/v2@v2.0.0-20260805211137-0f40adc35a8a",
+          "Identifier": {
+            "PURL": "pkg:golang/go.nwlabs.dev/x/arch/v2@v2.0.0-20260805211137-0f40adc35a8a",
+            "UID": "733bdf2eeeacbd8b"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "Apache-2.0"
+          ],
+          "Name": "go.nwlabs.dev/x/arch/v2",
+          "Relationship": "indirect",
+          "Version": "v2.0.0-20260805211137-0f40adc35a8a"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "golang.org/x/exp@v0.0.0-20260811152304-ee035b5b010f",
+          "Identifier": {
+            "PURL": "pkg:golang/golang.org/x/exp@v0.0.0-20260811152304-ee035b5b010f",
+            "UID": "19891a8a1827ecd6"
+          },
+          "Indirect": true,
+          "Name": "golang.org/x/exp",
+          "Relationship": "indirect",
+          "Version": "v0.0.0-20260811152304-ee035b5b010f"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "DependsOn": [
+            "golang.org/x/sys@v0.47.0",
+            "golang.org/x/text@v0.41.0"
+          ],
+          "ID": "golang.org/x/net@v0.57.0",
+          "Identifier": {
+            "PURL": "pkg:golang/golang.org/x/net@v0.57.0",
+            "UID": "28a9aac481333214"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "golang.org/x/net",
+          "Relationship": "indirect",
+          "Version": "v0.57.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "golang.org/x/sync@v0.22.0",
+          "Identifier": {
+            "PURL": "pkg:golang/golang.org/x/sync@v0.22.0",
+            "UID": "9afb0f1990042f94"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "golang.org/x/sync",
+          "Relationship": "indirect",
+          "Version": "v0.22.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "golang.org/x/sys@v0.47.0",
+          "Identifier": {
+            "PURL": "pkg:golang/golang.org/x/sys@v0.47.0",
+            "UID": "10d97aca0e5fb0ba"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "golang.org/x/sys",
+          "Relationship": "indirect",
+          "Version": "v0.47.0"
+        },
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "golang.org/x/text@v0.41.0",
+          "Identifier": {
+            "PURL": "pkg:golang/golang.org/x/text@v0.41.0",
+            "UID": "1f8997c52fd7d7f9"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Name": "golang.org/x/text",
+          "Relationship": "indirect",
+          "Version": "v0.41.0"
+        }
+      ],
+      "Target": "go.mod",
+      "Type": "gomod"
+    },
+    {
+      "Class": "lang-pkgs",
+      "Packages": [
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "testing",
+          "Identifier": {
+            "PURL": "pkg:golang/testing",
+            "UID": "77410c3af36f3b20"
+          },
+          "Name": "testing",
+          "Relationship": "root"
+        }
+      ],
+      "Target": "src/gomod/a/go.mod",
+      "Type": "gomod"
+    },
+    {
+      "Class": "lang-pkgs",
+      "Packages": [
+        {
+          "AnalyzedBy": "gomod",
+          "ID": "testing",
+          "Identifier": {
+            "PURL": "pkg:golang/testing",
+            "UID": "ffe47f64529a8056"
+          },
+          "Name": "testing",
+          "Relationship": "root"
+        }
+      ],
+      "Target": "src/gomod/b/go.mod",
+      "Type": "gomod"
+    },
+    {
+      "Class": "lang-pkgs",
+      "Packages": [
+        {
+          "AnalyzedBy": "pom",
+          "DependsOn": [
+            "org.openjfx:javafx-controls:21::709f2ce9"
+          ],
+          "ID": "org.openjfx:hellofx:1.0-SNAPSHOT::9d489449",
+          "Identifier": {
+            "PURL": "pkg:maven/org.openjfx/hellofx@1.0-SNAPSHOT",
+            "UID": "757a5d659c44f048"
+          },
+          "Name": "org.openjfx:hellofx",
+          "Relationship": "root",
+          "Version": "1.0-SNAPSHOT"
+        },
+        {
+          "AnalyzedBy": "pom",
+          "DependsOn": [
+            "org.openjfx:javafx-controls:21::709f2ce9",
+            "org.openjfx:javafx-graphics:21::23e9b418"
+          ],
+          "ID": "org.openjfx:javafx-controls:21::709f2ce9",
+          "Identifier": {
+            "PURL": "pkg:maven/org.openjfx/javafx-controls@21",
+            "UID": "af60d4f9605468a4"
+          },
+          "Licenses": [
+            "GPL-2.0-with-classpath-exception+"
+          ],
+          "Locations": [
+            {
+              "EndLine": 23,
+              "StartLine": 19
+            }
+          ],
+          "Name": "org.openjfx:javafx-controls",
+          "Relationship": "direct",
+          "Version": "21"
+        },
+        {
+          "AnalyzedBy": "pom",
+          "DependsOn": [
+            "org.openjfx:javafx-base:21::4efa5d93"
+          ],
+          "ID": "org.openjfx:javafx-base:21::4efa5d93",
+          "Identifier": {
+            "PURL": "pkg:maven/org.openjfx/javafx-base@21",
+            "UID": "f31ef614e8d90e3b"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "GPL-2.0-with-classpath-exception+"
+          ],
+          "Name": "org.openjfx:javafx-base",
+          "Relationship": "indirect",
+          "Version": "21"
+        },
+        {
+          "AnalyzedBy": "pom",
+          "DependsOn": [
+            "org.openjfx:javafx-base:21::4efa5d93",
+            "org.openjfx:javafx-graphics:21::23e9b418"
+          ],
+          "ID": "org.openjfx:javafx-graphics:21::23e9b418",
+          "Identifier": {
+            "PURL": "pkg:maven/org.openjfx/javafx-graphics@21",
+            "UID": "4fc6f7c265fcb692"
+          },
+          "Indirect": true,
+          "Licenses": [
+            "GPL-2.0-with-classpath-exception+"
+          ],
+          "Name": "org.openjfx:javafx-graphics",
+          "Relationship": "indirect",
+          "Version": "21"
+        }
+      ],
+      "Target": "src/maven/a/pom.xml",
+      "Type": "pom"
+    },
+    {
+      "Class": "license",
+      "Target": "go.mod"
+    },
+    {
+      "Class": "license",
+      "Licenses": [
+        {
+          "Category": "restricted",
+          "Confidence": 1,
+          "FilePath": "src/maven/a/pom.xml",
+          "Link": "",
+          "Name": "GPL-2.0-with-classpath-exception+",
+          "PkgName": "org.openjfx:javafx-controls",
+          "Severity": "HIGH",
+          "Text": ""
+        },
+        {
+          "Category": "restricted",
+          "Confidence": 1,
+          "FilePath": "src/maven/a/pom.xml",
+          "Link": "",
+          "Name": "GPL-2.0-with-classpath-exception+",
+          "PkgName": "org.openjfx:javafx-base",
+          "Severity": "HIGH",
+          "Text": ""
+        },
+        {
+          "Category": "restricted",
+          "Confidence": 1,
+          "FilePath": "src/maven/a/pom.xml",
+          "Link": "",
+          "Name": "GPL-2.0-with-classpath-exception+",
+          "PkgName": "org.openjfx:javafx-graphics",
+          "Severity": "HIGH",
+          "Text": ""
+        }
+      ],
+      "Target": "src/maven/a/pom.xml"
+    },
+    {
+      "Class": "license-file",
+      "Target": "Loose File License(s)"
+    }
+  ],
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.73.0"
+  }
+}

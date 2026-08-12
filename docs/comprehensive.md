@@ -258,7 +258,7 @@ The `FormatComment` function processes raw header text into YAML-compatible comm
 * Strips trailing newlines from input.
 * Returns empty string for whitespace-only input (no comment block generated).
 * Lines already starting with `#` are preserved unchanged (allows pre-formatted comments).
-* Non-`#` lines within 78 characters get a `# ` prefix.
+* Non-`#` lines within 78 characters get a `#` prefix.
 * Lines containing URLs are prefixed without wrapping (URLs are never broken).
 * Long lines without URLs are reflowed via `WrapLine` at the 78-character content limit (80 total = 2 prefix + 78 content).
 * Internal blank lines become bare `#` lines to preserve visual structure.
@@ -398,4 +398,4 @@ The test suite uses `pgregory.net/rapid` for property-based testing alongside tr
 
 ### Comment formatting design
 
-The `FormatComment` function applies a URL-aware wrapping strategy because YAML header comments often contain documentation links. Breaking URLs across lines would render them unclickable in editors and terminals. The 78-character content limit produces 80-character total lines (matching the `# ` prefix), which is the traditional terminal width for maximum compatibility.
+The `FormatComment` function applies a URL-aware wrapping strategy because YAML header comments often contain documentation links. Breaking URLs across lines would render them unclickable in editors and terminals. The 78-character content limit produces 80-character total lines (matching the `#` prefix), which is the traditional terminal width for maximum compatibility.

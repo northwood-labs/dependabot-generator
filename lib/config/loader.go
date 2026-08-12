@@ -21,7 +21,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/BurntSushi/toml"
+	"github.com/pelletier/go-toml/v2"
 )
 
 // LoadConfig resolves configuration from all sources in priority order,
@@ -38,25 +38,25 @@ func LoadConfig(opts *LoadOptions) (*Config, error) {
 
 	// Load config files from lowest to highest priority. Each layer overrides
 	// the previous.
-	globalPath := filepath.Join("/etc", "dependabot-generator", "config.toml")
+	globalPath := filepath.Join("etc", "dependabot-generator", "config.toml")
 
 	loadErr := applyFileConfig(cfg, globalPath)
 	if loadErr != nil {
-		return nil, loadErr
+		return nil, fmt.Errorf("loading global config: %w", loadErr)
 	}
 
 	userPath := userConfigPath()
 
 	loadErr = applyFileConfig(cfg, userPath)
 	if loadErr != nil {
-		return nil, loadErr
+		return nil, fmt.Errorf("loading user config: %w", loadErr)
 	}
 
 	localPath := filepath.Join(opts.ScanPath, ".depgen.toml")
 
 	loadErr = applyFileConfig(cfg, localPath)
 	if loadErr != nil {
-		return nil, loadErr
+		return nil, fmt.Errorf("loading local config: %w", loadErr)
 	}
 
 	// Apply environment variable (overrides config files).
@@ -130,7 +130,7 @@ func applyFileConfig(cfg *Config, path string) error {
 
 	fc := &FileConfig{}
 
-	_, parseErr := toml.Decode(string(data), fc)
+	parseErr := toml.Unmarshal(data, fc)
 	if parseErr != nil {
 		return fmt.Errorf("%w: %s", ErrConfigParse, path)
 	}

@@ -4,9 +4,9 @@ go 1.26.5
 
 require (
 	charm.land/fang/v2 v2.0.1
-	github.com/BurntSushi/toml v1.6.0
 	github.com/goreleaser/fileglob v1.4.0
 	github.com/lithammer/dedent v1.1.0
+	github.com/pelletier/go-toml/v2 v2.4.3
 	github.com/spf13/cobra v1.10.2
 	go.nwlabs.dev/cli-helpers/v2 v2.0.0-20260807231415-c1bdb19c311d
 	gopkg.in/yaml.v3 v3.0.1

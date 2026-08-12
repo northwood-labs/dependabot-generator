@@ -87,7 +87,7 @@ type (
 	FileConfig struct {
 		Ecosystems map[string]map[string]any `toml:"ecosystems"`
 		Header     string                    `toml:"header"`
-		IgnoreDirs []string                  `toml:"ignore-dirs"`
+		IgnoreDirs []string                  `toml:"ignore-dirs"` // lint:allow_formatting
 	}
 
 	// LoadOptions bundles the inputs needed to resolve configuration.

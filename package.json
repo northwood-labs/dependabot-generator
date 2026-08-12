@@ -18,5 +18,24 @@
     "@ast-grep/lang-scala": "^0.0.7",
     "@ast-grep/lang-swift": "^0.0.8",
     "@ast-grep/napi": "^0.45.1"
-  }
+  },
+  "trustedDependencies": [
+    "@ast-grep/lang-bash",
+    "@ast-grep/lang-c",
+    "@ast-grep/lang-cpp",
+    "@ast-grep/lang-csharp",
+    "@ast-grep/lang-dart",
+    "@ast-grep/lang-elixir",
+    "@ast-grep/lang-go",
+    "@ast-grep/lang-haskell",
+    "@ast-grep/lang-java",
+    "@ast-grep/lang-kotlin",
+    "@ast-grep/lang-lua",
+    "@ast-grep/lang-php",
+    "@ast-grep/lang-python",
+    "@ast-grep/lang-ruby",
+    "@ast-grep/lang-rust",
+    "@ast-grep/lang-scala",
+    "@ast-grep/lang-swift"
+  ]
 }

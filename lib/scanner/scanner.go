@@ -30,8 +30,8 @@ import (
 
 const (
 	// defaultEcosystemKey is the fallback key used when looking up
-	// per-ecosystem settings and no specific override exists for the
-	// matched ecosystem.
+	// per-ecosystem settings and no specific override exists for the matched
+	// ecosystem.
 	defaultEcosystemKey = "_default"
 )
 
@@ -107,23 +107,23 @@ type (
 		Loser  string
 	}
 
-	// GenerateOptions holds all inputs for YAML generation beyond
-	// the scan results themselves.
+	// GenerateOptions holds all inputs for YAML generation beyond the scan
+	// results themselves.
 	GenerateOptions struct {
 		EcosystemDefaults map[string]EcosystemSettings
 		CommentText       string
 	}
 
-	// EcosystemSettings holds additional Dependabot v2 fields for a
-	// specific ecosystem within the Generate context. The Fields map
-	// is keyed by dotted path (e.g., "schedule.interval").
+	// EcosystemSettings holds additional Dependabot v2 fields for a specific
+	// ecosystem within the Generate context. The Fields map is keyed by dotted
+	// path (e.g., "schedule.interval").
 	EcosystemSettings struct {
 		Fields map[string]any
 	}
 
 	// dependabotUpdate represents a single entry in the Dependabot updates
-	// array. ExtraFields holds per-ecosystem configuration values that
-	// get merged into the YAML output after directory.
+	// array. ExtraFields holds per-ecosystem configuration values that get
+	// merged into the YAML output after directory.
 	dependabotUpdate struct {
 		ExtraFields      map[string]any `yaml:"-"`
 		PackageEcosystem string         `yaml:"package-ecosystem"` // lint:allow_formatting
@@ -225,9 +225,9 @@ func validateRootPath(path string) (string, error) {
 		return "", fmt.Errorf("%w: %s", ErrRootNotDir, path)
 	}
 
-	// Open/Close proves we can actually read directory entries, catching
-	// cases where Stat succeeds (metadata is readable) but listing
-	// contents would fail.
+	// Open/Close proves we can actually read directory entries, catching cases
+	// where Stat succeeds (metadata is readable) but listing contents would
+	// fail.
 	dir, openErr := os.Open(path) // lint:allow_possible_insecure
 	if openErr != nil {
 		return "", fmt.Errorf(
@@ -242,9 +242,9 @@ func validateRootPath(path string) (string, error) {
 		)
 	}
 
-	// Resolve to absolute before walking so that all glob evaluations
-	// use fully-qualified paths — fileglob requires absolute patterns to
-	// function correctly.
+	// Resolve to absolute before walking so that all glob evaluations use
+	// fully-qualified paths — fileglob requires absolute patterns to function
+	// correctly.
 	absRoot, absErr := filepath.Abs(path)
 	if absErr != nil {
 		return "", fmt.Errorf(
@@ -284,15 +284,15 @@ func shouldSkipDir(relPath string, ignoreDirs []string) error {
 }
 
 // Generate converts scan results into a Dependabot v2 YAML configuration
-// string. It handles sorting and formatting so that the output is
-// deterministic — users commit this file and review diffs in PRs, so
-// identical inputs must always produce identical output regardless of the
-// order results were discovered during the walk.
+// string. It handles sorting and formatting so that the output is deterministic
+// — users commit this file and review diffs in PRs, so identical inputs must
+// always produce identical output regardless of the order results were
+// discovered during the walk.
 //
-// When opts is nil or opts.CommentText is empty, the output is identical
-// to the previous behavior (no header comment). When CommentText is
-// non-empty, FormatComment is called and the result is inserted after
-// the `---` separator with a blank line before the YAML body.
+// When opts is nil or opts.CommentText is empty, the output is identical to the
+// previous behavior (no header comment). When CommentText is non-empty,
+// FormatComment is called and the result is inserted after the `---` separator
+// with a blank line before the YAML body.
 func Generate(results []ScanResult, opts *GenerateOptions) (string, error) {
 	// Copy before sorting to avoid mutating the caller's slice, which may still
 	// be needed for logging or further processing.
@@ -320,21 +320,14 @@ func Generate(results []ScanResult, opts *GenerateOptions) (string, error) {
 		}
 	}
 
-	// Resolve per-ecosystem extra fields from EcosystemDefaults when
-	// provided. Each update entry looks up its ecosystem; if no specific
-	// override exists, falls back to the _default key.
+	// Resolve per-ecosystem extra fields using the four-layer merge: builtin
+	// _default, conditional defaults, user _default (merged by loader), and
+	// user ecosystem-specific override.
 	if opts != nil && opts.EcosystemDefaults != nil {
 		for i := range updates {
 			eco := updates[i].PackageEcosystem
 
-			settings, ok := opts.EcosystemDefaults[eco]
-			if !ok {
-				settings, ok = opts.EcosystemDefaults[defaultEcosystemKey]
-			}
-
-			if ok && settings.Fields != nil {
-				updates[i].ExtraFields = settings.Fields
-			}
+			updates[i].ExtraFields = resolveFields(eco, opts.EcosystemDefaults)
 		}
 	}
 
@@ -351,9 +344,9 @@ func Generate(results []ScanResult, opts *GenerateOptions) (string, error) {
 		return "", fmt.Errorf("%w: %w", ErrYAMLMarshal, marshalErr)
 	}
 
-	// [yaml.Encoder] does not emit the YAML document separator, but
-	// Dependabot expects it and users expect a well-formed YAML document,
-	// so we prepend it manually.
+	// [yaml.Encoder] does not emit the YAML document separator, but Dependabot
+	// expects it and users expect a well-formed YAML document, so we prepend it
+	// manually.
 	output := "---\n"
 
 	if opts != nil && opts.CommentText != "" {

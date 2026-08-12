@@ -1,0 +1,283 @@
+{
+  "pbtResults": {
+    "5.1 Write property test for merge precedence": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564490699
+    },
+    "5.2 Write property test for conditional application": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564494050
+    },
+    "5.3 Write property test for non-interference": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564497558
+    },
+    "5.4 Write property test for field preservation": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564501357
+    },
+    "5.5 Write property test for empty table identity": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564505832
+    },
+    "5.6 Write property test for output determinism": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564509544
+    },
+    "5.7 Write property test for alphabetical field ordering": {
+      "status": "passed",
+      "lastRunTimestamp": 1786564513854
+    }
+  },
+  "executionHistory": {
+    "1.1 Create `lib/scanner/conditional_defaults.go` with type, table, sentinel error, and validation": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563536951
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563546081
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563944235
+      }
+    ],
+    "2.1 Add `resolveFields` helper function in `lib/scanner/scanner.go`": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537016
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563965568
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563969474
+      }
+    ],
+    "2.2 Replace existing field resolution in `Generate` with `resolveFields` call": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537082
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563973623
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563977995
+      }
+    ],
+    "3. Checkpoint — Verify build and existing tests pass": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537144
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563987706
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563991690
+      }
+    ],
+    "4.1 Create `lib/scanner/conditional_defaults_test.go` with unit test scenarios": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537247
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564001519
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564144493
+      }
+    ],
+    "5.1 Write property test for merge precedence": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537331
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564149490
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564549838
+      }
+    ],
+    "5.2 Write property test for conditional application": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537394
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564150189
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564550796
+      }
+    ],
+    "5.3 Write property test for non-interference": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537448
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564152079
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564551434
+      }
+    ],
+    "5.4 Write property test for field preservation": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537513
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564152166
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564552038
+      }
+    ],
+    "5.5 Write property test for empty table identity": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537577
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564152770
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564552880
+      }
+    ],
+    "5.6 Write property test for output determinism": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537635
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564158558
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564556755
+      }
+    ],
+    "5.7 Write property test for alphabetical field ordering": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537704
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564159408
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564557770
+      }
+    ],
+    "6. Final checkpoint — Verify all tests pass and lint is clean": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563537769
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564562085
+      },
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564601959
+      }
+    ],
+    "1. Create ConditionalDefault type and data table": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563944337
+      }
+    ],
+    "2. Extract resolveFields helper and integrate conditional defaults into Generate": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786563978054
+      }
+    ],
+    "4. Unit tests for conditional defaults": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564144560
+      }
+    ],
+    "5. Property-based tests for correctness properties": [
+      {
+        "executionId": "fec28a3e-6511-49bf-88f9-b64758453cdf",
+        "chatSessionId": "sess_678c786b-8777-44cc-9736-552a46f2ce20",
+        "timestamp": 1786564557921
+      }
+    ]
+  }
+}

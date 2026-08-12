@@ -33,32 +33,33 @@ ignore-dirs = [".*", ".venv", "node_modules", "src", "vendor", "venv"]
 # that ecosystem.
 
 # Override global settings.
-# [ecosystems._default]
-# "schedule.interval" = "monthly"
-# "insecure-external-code-execution" = "deny"
-# "cooldown.default-days" = 7
-# "groups.monthly-batch.patterns" = ["*"]
+[ecosystems._default]
+  "commit-message.prefix"  = "chore"
+  "commit-message.include" = "scope"
+  "cooldown.default-days"  = 3
+  "schedule.interval"      = "monthly"
+  "groups.batch.patterns"  = ["*"]
 
-# Override github-actions settings.
-# [ecosystems.github-actions]
-# "schedule.interval" = "weekly"
-# "groups.actions.patterns" = ["*"]
+  # Override github-actions settings.
+  # [ecosystems.github-actions]
+  # "schedule.interval" = "weekly"
+  # "groups.actions.patterns" = ["*"]
 
-# Override gomod settings.
-# [ecosystems.gomod]
-# "schedule.interval" = "monthly"
-# "insecure-external-code-execution" = "deny"
-# "groups.go-deps.patterns" = ["*"]
+  # Override gomod settings.
+  # [ecosystems.gomod]
+  # "schedule.interval" = "monthly"
+  # "insecure-external-code-execution" = "deny"
+  # "groups.go-deps.patterns" = ["*"]
 
-# Override npm settings.
-# [ecosystems.npm]
-# "schedule.interval" = "weekly"
-# "insecure-external-code-execution" = "deny"
-# "groups.npm-deps.patterns" = ["*"]
-# "groups.npm-deps.update-types" = ["minor", "patch"]
+  # Override npm settings.
+  # [ecosystems.npm]
+  # "schedule.interval" = "weekly"
+  # "insecure-external-code-execution" = "deny"
+  # "groups.npm-deps.patterns" = ["*"]
+  # "groups.npm-deps.update-types" = ["minor", "patch"]
 
-# Override uv settings.
-# [ecosystems.uv]
-# "schedule.interval" = "weekly"
-# "insecure-external-code-execution" = "deny"
-# "groups.python-deps.patterns" = ["*"]
+  # Override uv settings.
+  # [ecosystems.uv]
+  # "schedule.interval" = "weekly"
+  # "insecure-external-code-execution" = "deny"
+  # "groups.python-deps.patterns" = ["*"]

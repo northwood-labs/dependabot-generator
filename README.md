@@ -48,23 +48,19 @@ Add an inline header comment to the generated file:
 dependabot-generator run . --header "Managed by dependabot-generator. Do not edit."
 ```
 
-Or point to a file containing the header text:
-
-```bash
-dependabot-generator run . --header-file .depgen-header.txt
-```
-
-The header can also be set via the `DEPGEN_HEADER` environment variable.
+The header can also be set via the `DEPGEN_HEADER` environment variable. It will auto-wrap prose at 80 characters (excluding URLs) when written to YAML.
 
 ### Configuration file
 
 The tool optionally reads `.depgen.toml` for additional configuration. It searches three locations in priority order (highest wins):
 
-1. `<scan-path>/.depgen.toml` (repository-local)
-2. `$XDG_CONFIG_HOME/dependabot-generator/config.toml` (user-level)
-3. `/etc/dependabot-generator/config.toml` (organization-level)
+1. `<repo>/.depgen.toml` (repository-local)
 
-Example `.depgen.toml`:
+2. `${XDG_CONFIG_HOME}/dependabot-generator/config.toml` or `${HOME}/.config/dependabot-generator/config.toml` (user-level)
+
+3. `/etc/dependabot-generator/config.toml` (global-level)
+
+#### Example `.depgen.toml`
 
 ```toml
 # Custom header comment prepended to the generated YAML.
@@ -106,6 +102,8 @@ dependabot-generator version
 ```
 
 ## Supported ecosystems
+
+See [Dependabot Options Reference](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference#package-ecosystem-).
 
 | Ecosystem      | Identifier       | Detection files                                |
 |----------------|------------------|------------------------------------------------|

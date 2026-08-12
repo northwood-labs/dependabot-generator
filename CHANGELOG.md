@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :dependabot: Building and Dependencies
+### <!-- 0 -->:rocket: Features
 
-* [`fa717fd`](https://github.com/northwood-labs/dependabot-generator/commit/fa717fd367a0c7758811bc89913ea616035b0c02): Add gRPC endpoints and standardize configuration formatting. ([@skyzyx](https://github.com/skyzyx))
+* [`c45d68a`](https://github.com/northwood-labs/dependabot-generator/commit/c45d68aed56fa8a6d81983921d5450871e47b288): Add layered configuration with header comments and ecosystem defaults. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-08-11.</p>
+<p>Generated on 2026-08-12.</p>

@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :closed_lock_with_key: Security
+### <!-- 0 -->:rocket: Features
 
-* [`a5843ec`](https://github.com/northwood-labs/dependabot-generator/commit/a5843ec27fe18df86831d8c110590308cb014263): Integrated KiroGraph for code graph and knowledge management. ([@skyzyx](https://github.com/skyzyx))
+* [`46080aa`](https://github.com/northwood-labs/dependabot-generator/commit/46080aa305be57882483da03b7a4ab8e8f2f4ad0): Implement conditional ecosystem default values. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-12.</p>

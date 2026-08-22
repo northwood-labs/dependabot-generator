@@ -2,6 +2,7 @@
 // https://github.com/jdx/hk/blob/main/hk.pkl
 // https://github.com/jdx/hk/releases/latest
 amends "package://github.com/jdx/hk/releases/download/v1.48.0/hk@1.48.0#/Config.pkl"
+
 import "package://github.com/jdx/hk/releases/download/v1.48.0/hk@1.48.0#/Builtins.pkl"
 // @config-manager:end imports
 
@@ -70,17 +71,17 @@ local linters = new Mapping<String, Group> {
   ["frontend"] = new Group {
     steps {
       // astro
-    //   ["knip"] = (Builtins.knip_strict) {
-    //     workspace_indicator = ".knip.jsonc"
-    //     check = """
-    //         cd {{ workspace }} && \\
-    //         bun knip --strict --exports --no-progress --directory .
-    //         """
-    //     fix = """
-    //         cd {{ workspace }} && \\
-    //         bun knip --fix --strict --exports --no-progress --directory .
-    //         """
-    //   }
+      //   ["knip"] = (Builtins.knip_strict) {
+      //     workspace_indicator = ".knip.jsonc"
+      //     check = """
+      //         cd {{ workspace }} && \\
+      //         bun knip --strict --exports --no-progress --directory .
+      //         """
+      //     fix = """
+      //         cd {{ workspace }} && \\
+      //         bun knip --fix --strict --exports --no-progress --directory .
+      //         """
+      //   }
       ["oxfmt"] = (Builtins.oxfmt) {
         workspace_indicator = ".oxfmtrc.jsonc"
         glob = "**/*.{jsx?,tsx?}"
@@ -92,16 +93,18 @@ local linters = new Mapping<String, Group> {
         glob = "**/*.{jsx?,tsx?}"
 
         // https://pkl-lang.org/main/current/language-reference/index.html#multiline-strings
-        check = """
-            cd {{ workspace }} && \\
-            oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin \\
-                --no-error-on-unmatched-pattern {{ files }}
-            """
-        fix = """
-            cd {{ workspace }} && \\
-            oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin \\
-                --fix --no-error-on-unmatched-pattern {{ files }}
-            """
+        check =
+          """
+          cd {{ workspace }} && \\
+          oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin \\
+              --no-error-on-unmatched-pattern {{ files }}
+          """
+        fix =
+          """
+          cd {{ workspace }} && \\
+          oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin \\
+              --fix --no-error-on-unmatched-pattern {{ files }}
+          """
       }
       ["sort-package-json"] = (Builtins.sort_package_json) {
         check = "bunx sort-package-json --check {{ files }}"
@@ -166,19 +169,19 @@ local linters = new Mapping<String, Group> {
             "go-mod-tidy",
             "go-modernize",
             "go-same-receiver-pointer",
-            "go-vet",
-            "golines",
+            "go-vet"
+            // "golines",
           )
         profiles = List("slow")
       }
-      ["golines"] {
-        workspace_indicator = "go.mod"
-        glob = "**/*.go"
-        check =
-          "golines --base-formatter=gofumpt --write-output --max-len=120 --dry-run {{ files }}"
-        fix = "golines --base-formatter=gofumpt --write-output --max-len=120 {{ files }}"
-        profiles = List("slow")
-      }
+      // ["golines"] {
+      //   workspace_indicator = "go.mod"
+      //   glob = "**/*.go"
+      //   check =
+      //     "golines --base-formatter=gofumpt --write-output --max-len=120 --dry-run {{ files }}"
+      //   fix = "golines --base-formatter=gofumpt --write-output --max-len=120 {{ files }}"
+      //   profiles = List("slow")
+      // }
       ["go-mod-tidy"] {
         workspace_indicator = "go.mod"
         glob = "**/*.go"
@@ -214,8 +217,8 @@ local linters = new Mapping<String, Group> {
   }
   ["grpc"] = new Group {
     steps {
-      // buf-format
-      // buf-lint
+    // buf-format
+    // buf-lint
     }
   }
   ["python"] = new Group {
@@ -246,15 +249,15 @@ local linters = new Mapping<String, Group> {
   }
   ["rest-api"] = new Group {
     steps {
-      // vacuum
+    // vacuum
     }
   }
   ["rust"] = new Group {
     steps {
-      // cargo-check
-      // cargo-clippy
-      // cargo-fmt
-      // rustfmt
+    // cargo-check
+    // cargo-clippy
+    // cargo-fmt
+    // rustfmt
     }
   }
   ["shell"] = new Group {
@@ -296,7 +299,7 @@ local linters = new Mapping<String, Group> {
   }
   ["swift"] = new Group {
     steps {
-      // swiftlint
+    // swiftlint
     }
   }
   ["tofu"] = new Group {

@@ -21,13 +21,14 @@ updates:
       include: scope
       prefix: chore
     cooldown:
-      default-days: 3
+      default-days: 7
     groups:
       batch:
         patterns:
           - '*'
     labels:
-      - dependabot
+      - area:dependencies
+      - kind:chore
     schedule:
       interval: monthly
   - package-ecosystem: github-actions
@@ -38,13 +39,14 @@ updates:
       include: scope
       prefix: chore
     cooldown:
-      default-days: 3
+      default-days: 7
     groups:
       batch:
         patterns:
           - '*'
     labels:
-      - dependabot
+      - area:dependencies
+      - kind:chore
     schedule:
       interval: monthly
   - package-ecosystem: gomod
@@ -55,12 +57,13 @@ updates:
       include: scope
       prefix: chore
     cooldown:
-      default-days: 3
+      default-days: 7
     groups:
       batch:
         patterns:
           - '*'
     labels:
-      - dependabot
+      - area:dependencies
+      - kind:chore
     schedule:
       interval: monthly

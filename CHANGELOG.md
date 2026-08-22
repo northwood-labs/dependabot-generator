@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`c7e2234`](https://github.com/northwood-labs/dependabot-generator/commit/c7e22342e15cf5abee888ef71cbfd6cfabf2cf20): Standardize configuration formatting and enhance Dependabot automation. ([@skyzyx](https://github.com/skyzyx))
+* [`d360e4c`](https://github.com/northwood-labs/dependabot-generator/commit/d360e4cfb4f8a815ec0a98f462b6d3bbe460e56d): Add Copilot instructions and update project configuration. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-08-12.</p>
+<p>Generated on 2026-08-22.</p>

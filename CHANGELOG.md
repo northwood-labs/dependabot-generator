@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`d360e4c`](https://github.com/northwood-labs/dependabot-generator/commit/d360e4cfb4f8a815ec0a98f462b6d3bbe460e56d): Add Copilot instructions and update project configuration. ([@skyzyx](https://github.com/skyzyx))
+* [`0431a4c`](https://github.com/northwood-labs/dependabot-generator/commit/0431a4c69945e71397a91ddb8bf8f3c08e51ff6a): Add GitHub internal API to CI network allowlist. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-08-22.</p>
+<p>Generated on 2026-08-25.</p>

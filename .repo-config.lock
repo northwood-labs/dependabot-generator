@@ -57,9 +57,9 @@ source_hash = ''
 dest_hash = 'sha256:8270a3751b6da3c012a2e10dba6c28bd03b49042c459729fc66bda15b4126994'
 
 [files.'.github/workflows/codeql.yml']
-last_sync_time = '2026-08-25T21:53:22Z'
+last_sync_time = '2026-08-27T18:50:36Z'
 source_hash = ''
-dest_hash = 'sha256:e3d37a1c89a11468c84a675646c718201b3a212daa21aafaa743d0a3f50a7573'
+dest_hash = 'sha256:e2af0bfddc1bfb52895031694967c04e963b54edbdc84ae6e64ed5d76250a38c'
 
 [files.'.github/workflows/dependabot-auto-merge.yml']
 last_sync_time = '2026-08-25T21:53:22Z'
@@ -72,14 +72,14 @@ source_hash = ''
 dest_hash = 'sha256:474b7ea005ebc8ac39f241b9fca4dd5b012a072de4436d4f764cf276859e80a1'
 
 [files.'.github/workflows/osv-scanner.yml']
-last_sync_time = '2026-08-25T21:53:22Z'
+last_sync_time = '2026-08-27T18:50:36Z'
 source_hash = ''
-dest_hash = 'sha256:d31aff1ccc7a6ee719bfeeffe7d66a9e082bde70b63b396e18c3ca59d44152f5'
+dest_hash = 'sha256:f25ebb37b28daf18679a243acf6dbfdb6a96cbbec0db92b71204e48cb4cd4a58'
 
 [files.'.github/workflows/scorecard.yml']
-last_sync_time = '2026-08-25T21:53:22Z'
+last_sync_time = '2026-08-27T18:50:36Z'
 source_hash = ''
-dest_hash = 'sha256:7e8b6983fe4c296a74297e0d05927ce851494a5a36ebc12463d7991360320922'
+dest_hash = 'sha256:40d2c543050238fe76fbf1bfe9abbbcbf22dcb270cc5e6877961246533e70429'
 
 [files.'.github/workflows/test.yml']
 last_sync_time = '2026-08-25T21:53:22Z'
@@ -172,7 +172,7 @@ source_hash = ''
 dest_hash = 'sha256:4faa0ad39a03373d9202d3bda9de94d1afcd91ecdb13c9f5b9836196e8ca75f0'
 
 [files.'.rumdl.toml']
-last_sync_time = '2026-08-25T21:53:22Z'
+last_sync_time = '2026-08-27T18:50:36Z'
 source_hash = ''
 dest_hash = 'sha256:5873ead0fb97ce498c0912de39393688050947d9bf9817fde3ca7a9a3985a524'
 
@@ -277,7 +277,7 @@ source_hash = ''
 dest_hash = 'sha256:3aab64b69c52504b8785cce3046d70af4c72a2d8c51de16806551aa95998cb30'
 
 [files.'hk.pkl']
-last_sync_time = '2026-08-25T21:53:22Z'
+last_sync_time = '2026-08-27T18:50:36Z'
 source_hash = ''
 dest_hash = 'sha256:1bc56ebfbc734621cae94d6ba0f79c40a6fc97d528d6f7203ae3d99471109d0f'
 

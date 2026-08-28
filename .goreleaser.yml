@@ -1,0 +1,113 @@
+---
+# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
+version: 2
+project_name: "@TODO: Add a real project name."
+dist: ./dist
+
+# https://goreleaser.com/customization/reportsizes/
+report_sizes: true
+
+# https://goreleaser.com/customization/general/metadata/
+metadata:
+  mod_timestamp: "{{ .CommitTimestamp }}"
+  license: "Apache-2.0"
+  full_description:
+    from_file:
+      path: ./README.md
+
+  homepage: "https://github.com/northwood-labs/" # @TODO: Full GitHub, Marketing, or Documentation URL.
+  description: "Software to create fast and easy drum rolls."
+
+  maintainers:
+    - "Northwood Labs <maintainers@northwood-labs.com>"
+
+  commit_author:
+    name: "Northwood Labs (Bot)"
+    email: bot@northwood-labs.com
+    use_github_app_token: true
+
+    signing:
+      enabled: true
+      # The signing key to use.
+      # Can be a key ID, fingerprint, email address, or path to a key file.
+      #
+      # Templates: allowed.
+      key: "{{ .Env.GPG_SIGNING_KEY }}"
+      # The GPG program to use for signing.
+      #
+      # Templates: allowed.
+      program: gpg2
+      # The signature format to use.
+      #
+      # Valid options: openpgp, x509, ssh.
+      # Default: openpgp.
+      format: openpgp
+
+# @config-manager:start builds
+# https://goreleaser.com/customization/builds/
+builds:
+  - env:
+      - CGO_ENABLED=0
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X go.nwlabs.dev/cli-helpers/v2.Version={{.Version}}
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    binary: "{{ .ProjectName }}_v{{ .Version }}"
+# @config-manager:end builds
+
+# @config-manager:start archives
+# https://goreleaser.com/customization/archive/
+archives:
+  - formats:
+      - zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+# @config-manager:end archives
+
+# @config-manager:start checksum
+# https://goreleaser.com/customization/checksum/
+checksum:
+  name_template: "{{ .ProjectName }}_{{ .Version }}_SHA256SUMS"
+  algorithm: sha256
+# @config-manager:end checksum
+
+# @config-manager:start signing
+# https://goreleaser.com/customization/sign/
+signs:
+  - artifacts: checksum
+    args:
+      - --batch
+      - --local-user
+      - "{{ .Env.GPG_FINGERPRINT }}" # set this environment variable for your signing key
+      - --output
+      - ${signature}
+      - --detach-sign
+      - ${artifact}
+# @config-manager:end signing
+
+# @config-manager:start release
+# https://goreleaser.com/customization/release/
+release:
+  # Visit your project's GitHub Releases page to publish this release.
+  draft: true
+  prerelease: auto
+  mode: replace
+  # extra_files:
+  #   - glob: terraform-registry-manifest.json
+  #     name_template: "{{ .ProjectName }}_{{ .Version }}_manifest.json"
+  name_template: '{{.Version}} — {{time "2006-01-02"}}'
+# @config-manager:end release
+
+# @config-manager:start changelog
+# https://goreleaser.com/customization/changelog/
+changelog:
+  disable: false
+  use: github-native
+# @config-manager:end changelog

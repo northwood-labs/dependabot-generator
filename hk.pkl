@@ -169,7 +169,7 @@ local linters = new Mapping<String, Group> {
             "go-mod-tidy",
             "go-modernize",
             "go-same-receiver-pointer",
-            "go-vet"
+            "go-vet",
             // "golines",
           )
         profiles = List("slow")

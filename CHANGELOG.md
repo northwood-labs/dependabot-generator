@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- ZZZ -->:gear: Miscellaneous Tasks
+### <!-- 0 -->:rocket: Features
 
-* [`0431a4c`](https://github.com/northwood-labs/dependabot-generator/commit/0431a4c69945e71397a91ddb8bf8f3c08e51ff6a): Add GitHub internal API to CI network allowlist. ([@skyzyx](https://github.com/skyzyx))
+* [`bf2133f`](https://github.com/northwood-labs/dependabot-generator/commit/bf2133f80f624dc8e3a4e0f3b9ee249985796cdf): Add GoReleaser configuration for automated releases. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-08-25.</p>
+<p>Generated on 2026-08-28.</p>

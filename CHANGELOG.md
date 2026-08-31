@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### <!-- 0 -->:rocket: Features
+### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`bf2133f`](https://github.com/northwood-labs/dependabot-generator/commit/bf2133f80f624dc8e3a4e0f3b9ee249985796cdf): Add GoReleaser configuration for automated releases. ([@skyzyx](https://github.com/skyzyx))
+* [`787c3d1`](https://github.com/northwood-labs/dependabot-generator/commit/787c3d15b81a1918382210152b08c7037e73e6fd): Updated YAML dependency to v4. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-08-28.</p>
+<p>Generated on 2026-08-31.</p>

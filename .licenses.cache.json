@@ -25,7 +25,7 @@
             "github.com/lithammer/dedent@v1.1.0",
             "github.com/spf13/cobra@v1.10.2",
             "go.nwlabs.dev/cli-helpers/v2@v2.0.0-20260807231415-c1bdb19c311d",
-            "gopkg.in/yaml.v3@v3.0.1",
+            "go.yaml.in/yaml/v4@v3.0.1",
             "pgregory.net/rapid@v1.3.0",
             "github.com/gorilla/css@v1.0.1"
           ],
@@ -149,16 +149,16 @@
         },
         {
           "AnalyzedBy": "gomod",
-          "ID": "gopkg.in/yaml.v3@v3.0.1",
+          "ID": "go.yaml.in/yaml/v4@v3.0.1",
           "Identifier": {
-            "PURL": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+            "PURL": "pkg:golang/go.yaml.in/yaml/v4@v3.0.1",
             "UID": "dfc5be2d32953afd"
           },
           "Licenses": [
             "Apache-2.0",
             "MIT"
           ],
-          "Name": "gopkg.in/yaml.v3",
+          "Name": "go.yaml.in/yaml/v4",
           "Relationship": "direct",
           "Version": "v3.0.1"
         },

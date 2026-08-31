@@ -67,7 +67,7 @@ The config layer resolves three concerns: header comment text, directory ignore 
 * Copies and sorts results deterministically (directory ascending, then ecosystem ascending).
 * Looks up per-ecosystem extra fields from `EcosystemDefaults` (falls back to `_default` key).
 * Builds a YAML Node tree for deterministic key ordering per update entry.
-* Encodes via `gopkg.in/yaml.v3` with 2-space indentation.
+* Encodes via `go.yaml.in/yaml/v4` with 2-space indentation.
 * Prepends the `---` YAML document separator.
 * Inserts formatted header comment (if configured) between the separator and the body.
 

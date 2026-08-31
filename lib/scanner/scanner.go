@@ -25,7 +25,7 @@ import (
 	"strings"
 
 	"github.com/goreleaser/fileglob"
-	"gopkg.in/yaml.v3"
+	"go.yaml.in/yaml/v4"
 )
 
 const (

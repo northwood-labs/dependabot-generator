@@ -23,7 +23,7 @@ import (
 	"maps"
 	"testing"
 
-	"gopkg.in/yaml.v3"
+	"go.yaml.in/yaml/v4"
 	"pgregory.net/rapid"
 )
 

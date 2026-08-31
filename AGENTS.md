@@ -67,7 +67,7 @@ The `Makefile` is a shim that forwards `make <target>` to `task <target>`.
 | CLI framework      | `github.com/spf13/cobra` + `charm.land/fang/v2`       |
 | Glob matching      | `github.com/goreleaser/fileglob`                      |
 | TOML parsing       | `github.com/BurntSushi/toml`                          |
-| YAML output        | `gopkg.in/yaml.v3`                                    |
+| YAML output        | `go.yaml.in/yaml/v4`                                  |
 | Text dedentation   | `github.com/lithammer/dedent`                         |
 | Shared CLI helpers | `go.nwlabs.dev/cli-helpers/v2` (aliased `clihelpers`) |
 | Logging            | `log/slog` via `go.nwlabs.dev/x/logutils`             |

@@ -16,7 +16,7 @@ Activate with `/kirograph-wiki-workflow` in Kiro IDE or read the file directly.
 
 ## Steps
 
-### 1. look up existing knowledge before starting work
+### 1. Look up existing knowledge before starting work
 
 ```text
 kirograph_wiki_search(query: "<topic or keyword>")
@@ -28,7 +28,7 @@ Read any relevant pages:
 kirograph_wiki_page(slug: "<slug from search results>")
 ```
 
-### 2. ingest new knowledge (two-tool flow)
+### 2. Ingest new knowledge (two-tool flow)
 
 **a. Get the ingest prompt:**
 
@@ -50,13 +50,13 @@ kirograph_wiki_apply_diff(diff: "<the WIKI_DIFF block you generated>")
 
 Review the response for any pending conflicts and resolve them.
 
-### 3. list all pages
+### 3. List all pages
 
 ```text
 kirograph_wiki_list()
 ```
 
-### 4. health check (periodic)
+### 4. Health check (periodic)
 
 ```text
 kirograph_wiki_lint()

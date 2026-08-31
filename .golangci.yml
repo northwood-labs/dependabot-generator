@@ -374,9 +374,6 @@ linters:
             - pkg: "gopkg.in/yaml.v2"
               desc: Use go.yaml.in/yaml/v4 instead.
 
-            - pkg: "gopkg.in/yaml.v3"
-              desc: Use go.yaml.in/yaml/v4 instead.
-
             - pkg: "go.yaml.in/yaml/v2"
               desc: Use go.yaml.in/yaml/v4 instead.
 
@@ -3350,8 +3347,9 @@ formatters:
 
       # Choose whether to use the extra rules.
       # Default: false
-      extra-rules: true
-      # @config-manager:end formatters-settings-gofumpt
+      extra:
+        group-params: true
+        # @config-manager:end formatters-settings-gofumpt
 
     goimports:
       # @config-manager:start formatters-settings-goimports

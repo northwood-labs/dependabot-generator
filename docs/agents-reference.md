@@ -12,7 +12,7 @@ Detailed reference material for AI agents working in this repository. For a quic
 | `charm.land/fang/v2`             | Terminal color detection wrapper for Cobra |
 | `github.com/goreleaser/fileglob` | Advanced glob matching (supports `**`)     |
 | `github.com/lithammer/dedent`    | Dedents multi-line help text strings       |
-| `gopkg.in/yaml.v3`               | YAML marshaling for output                 |
+| `go.yaml.in/yaml/v4`             | YAML marshaling for output                 |
 | `go.nwlabs.dev/cli-helpers/v2`   | Shared Northwood Labs CLI helpers          |
 | `go.nwlabs.dev/x/logutils`       | Logger initialization based on verbosity   |
 | `pgregory.net/rapid`             | Property-based testing framework           |

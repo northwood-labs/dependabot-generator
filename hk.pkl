@@ -42,8 +42,12 @@ local linters = new Mapping<String, Group> {
       // mdschema
       ["mise-fmt"] = (Builtins.mise) {}
       ["mixed-line-ending"] = (Builtins.mixed_line_ending) {}
-      ["pinact"] = (Builtins.pinact) {}
-      ["pinact-update"] = (Builtins.pinact_update) {}
+      ["pinact"] = (Builtins.pinact) {
+        profiles = List("slow")
+      }
+      ["pinact-update"] = (Builtins.pinact_update) {
+        profiles = List("slow")
+      }
       ["pkl-eval"] = (Builtins.pkl) {
         glob = "**/*.pkl"
       }
@@ -51,7 +55,6 @@ local linters = new Mapping<String, Group> {
         glob = "**/*.pkl"
       }
       // vale
-      ["zizmor"] = (Builtins.zizmor) {}
     }
   }
   ["containers"] = new Group {
@@ -127,6 +130,7 @@ local linters = new Mapping<String, Group> {
     steps {
       ["ghalint-action"] = (Builtins.ghalint_action) {}
       ["ghalint-workflow"] = (Builtins.ghalint_workflow) {}
+      ["zizmor"] = (Builtins.zizmor) {}
     }
   }
   ["golang"] = new Group {
@@ -169,7 +173,7 @@ local linters = new Mapping<String, Group> {
             "go-mod-tidy",
             "go-modernize",
             "go-same-receiver-pointer",
-            "go-vet",
+            "go-vet"
             // "golines",
           )
         profiles = List("slow")

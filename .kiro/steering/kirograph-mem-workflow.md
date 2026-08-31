@@ -7,7 +7,7 @@ inclusion: manual
 Use this workflow to recall past knowledge, store new observations, and keep the memory base
 consistent by detecting and resolving conflicts.
 
-## 1. recall before acting
+## 1. Recall before acting
 
 Before making an architecture decision or fixing a bug, search what's already known:
 
@@ -18,7 +18,7 @@ kirograph_mem_search(query: "<error symptom>", kind: "error")
 
 Results include inline conflict annotations (⚡) — review them before proceeding.
 
-## 2. store a new observation
+## 2. Store a new observation
 
 After a decision, bug fix, or discovery:
 
@@ -33,7 +33,7 @@ kirograph_mem_store(
 
 **topicKey examples:** `"architecture/auth-model"`, `"infra/db-choice"`, `"pattern/error-handling"`
 
-## 3. capture observations from structured text
+## 3. Capture observations from structured text
 
 If you have a Markdown block with bullet points under headings like `## Key Learnings` or
 `## Decisions`, extract them all at once:
@@ -42,7 +42,7 @@ If you have a Markdown block with bullet points under headings like `## Key Lear
 kirograph_mem_capture(content: "<markdown text>", kind: "decision")
 ```
 
-## 4. detect conflicts
+## 4. Detect conflicts
 
 After storing related observations, scan for potential contradictions:
 
@@ -52,7 +52,7 @@ kirograph_mem_conflicts_scan(limit: 20)
 
 Returns candidate pairs ranked by similarity. Review each one.
 
-## 5. compare two observations
+## 5. Compare two observations
 
 To understand if two observations conflict, are compatible, or one supersedes the other:
 
@@ -62,7 +62,7 @@ kirograph_mem_compare(observationA: "<id or topicKey>", observationB: "<id or to
 
 Returns both observations side by side. Read them, then judge.
 
-## 6. judge a relation
+## 6. Judge a relation
 
 ```text
 kirograph_mem_judge(
@@ -76,7 +76,7 @@ kirograph_mem_judge(
 Use `supersedes` when a newer decision replaces an older one. Use `not_conflict` to dismiss
 false positives so they don't reappear in scans.
 
-## 7. review stale observations
+## 7. Review stale observations
 
 Find observations scheduled for re-evaluation:
 

@@ -9,7 +9,7 @@ Activate with `/kirograph-patterns` in Kiro IDE or CLI.
 
 ## Steps
 
-### 1. browse available rules
+### 1. Browse available rules
 
 ```text
 kirograph_live_search(pattern: "--list")
@@ -17,19 +17,19 @@ kirograph_live_search(pattern: "--list")
 
 Or use the CLI: `kirograph pattern --list`
 
-### 2. search for a specific structural pattern
+### 2. Search for a specific structural pattern
 
 ```text
 kirograph_live_search(pattern: "eval($X)", language: "typescript")
 ```
 
-### 3. run a bundled library rule
+### 3. Run a bundled library rule
 
 ```text
 kirograph pattern --library sql-injection-concat-js
 ```
 
-### 4. add a custom rule
+### 4. Add a custom rule
 
 Create a YAML file in your `patternLibraryPath` directory:
 

@@ -6,7 +6,7 @@ inclusion: manual
 
 Use this workflow for pre-commit reviews, PR descriptions, and understanding what changed.
 
-## 1. before committing — Understand what you changed
+## 1. Before committing — Understand what you changed
 
 ```text
 kirograph_diff_context()              // unstaged — see what's touched
@@ -15,7 +15,7 @@ kirograph_diff_context(staged: true)  // staged — final check before commit
 
 This shows changed symbols, their callers (who might break), and their callees (what they call).
 
-## 2. build commit message context
+## 2. Build commit message context
 
 ```text
 kirograph_commit_context()
@@ -23,7 +23,7 @@ kirograph_commit_context()
 
 Returns staged files, diff stat, and affected symbols. Feed into commit message generation.
 
-## 3. check test coverage for changed symbols
+## 3. Check test coverage for changed symbols
 
 ```text
 kirograph_test_map()                          // all symbols with no test coverage
@@ -38,7 +38,7 @@ kirograph_pr_context(base: "main", head: "HEAD")
 
 Returns symbols added/removed/changed between refs. Use as structured context for PR summary.
 
-## 5. coverage report (if lcov/Istanbul files exist)
+## 5. Coverage report (if lcov/Istanbul files exist)
 
 ```text
 kirograph_test_coverage()                    // worst-covered files first

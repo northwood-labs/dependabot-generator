@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`787c3d1`](https://github.com/northwood-labs/dependabot-generator/commit/787c3d15b81a1918382210152b08c7037e73e6fd): Updated YAML dependency to v4. ([@skyzyx](https://github.com/skyzyx))
+* [`d1d8be3`](https://github.com/northwood-labs/dependabot-generator/commit/d1d8be35ae45a7e7289310e6e33be559f6de3d12): Update GitHub Actions and Rumdl configuration. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-08-31.</p>

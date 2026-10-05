@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :dependabot: Building and Dependencies
+### :tractor: Refactor
 
-* [`d745aed`](https://github.com/northwood-labs/dependabot-generator/commit/d745aedf9fbb2a0c6fa2fd7d7c659b687a6ccd4f): **deps**: Bump `github.com/goreleaser/fileglob` from 1.4.0 to 1.4.1 in the batch group ([#4](@REPO/issues/4)) ([@dependabot](https://github.com/dependabot))
+* [`849c8f5`](https://github.com/northwood-labs/dependabot-generator/commit/849c8f59e6e774e2d260755938ce3b0ce05fe020): Modularize GoReleaser configuration. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-10-01.</p>
+<p>Generated on 2026-10-05.</p>

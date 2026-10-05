@@ -1,0 +1,47 @@
+---
+# @config-manager:start mac-universal
+# https://goreleaser.com/customization/builds/universalbinaries/
+universal_binaries:
+  - # ID of the resulting universal binary.
+    #
+    # Default: the project name.
+    id: "{{ .Var.defaultBuildId }}_universal"
+
+    # IDs to use to filter the built binaries.
+    #
+    # Notice that you shouldn't include different apps' IDs here. This field is
+    # usually only required if you are using CGO.
+    #
+    # Default: the value of the id field.
+    # ids:
+    #   - build1
+    #   - build2
+
+    # Universal binary name.
+    #
+    # You will want to change this if you have multiple builds!
+    #
+    # Default: '{{ .ProjectName }}'.
+    # Templates: allowed.
+    name_template: "{{ .ProjectName }}_v{{ .Version }}"
+
+    # Whether to remove the previous single-arch binaries from the artifact
+    # list. If left as false, your end release might have as many as three
+    # archives for macOS: 'amd64', 'arm64' and 'all'.
+    replace: true
+
+    # Set the modified timestamp on the output binary, typically you would do
+    # this to ensure a build was reproducible. Pass an empty string to skip
+    # modifying the output.
+    #
+    # Templates: allowed.
+    mod_timestamp: "{{ .CommitTimestamp }}"
+
+    # Hooks can be used to customize the final binary, for example, to run
+    # generators.
+    #
+    # Templates: allowed.
+    # hooks:
+    #   pre: rice embed-go
+    #   post: ./script.sh {{ .Path }}
+# @config-manager:end mac-universal

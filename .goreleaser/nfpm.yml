@@ -1,0 +1,51 @@
+---
+# @config-manager:start nfpm
+# https://goreleaser.com/customization/package/nfpm/
+nfpms:
+  - file_name_template: "{{ .ConventionalFileName }}"
+    ids: [] # All
+
+    if: '{{ eq .Os "linux" }}'
+
+    # Your app's vendor.
+    vendor: Northwood Labs
+    formats:
+      - apk
+      - deb
+      - rpm
+      - archlinux
+    umask: 0o002
+    provides:
+      - "{{ .ProjectName }}"
+    bindir: /usr/local/bin
+
+    # Red Hat, Fedora, Amazon Linux
+    rpm:
+      # Compression algorithm (gzip (default), lzma or xz).
+      compression: lzma
+
+      signature:
+        key_file: "{{ .Env.GPG_KEY_PATH }}"
+
+    # Debian, Ubuntu, Distroless
+    # https://github.com/googlecontainertools/distroless
+    deb:
+      compression: zstd
+
+      signature:
+        key_file: "{{ .Env.GPG_KEY_PATH }}"
+        type: origin
+
+      fields:
+        Bugs: "{{ .Var.homepage }}/issues"
+
+    # Alpine, Busybox
+    apk:
+      signature:
+        key_file: "{{ .Env.GPG_KEY_PATH }}"
+        key_name: origin
+
+    # Arch Linux
+    archlinux:
+      packager: "{{ .Var.email }}"
+# @config-manager:end nfpm

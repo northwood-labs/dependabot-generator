@@ -1,0 +1,12 @@
+---
+# @config-manager:start pkg
+# https://goreleaser.com/customization/package/pkg/
+pkgs:
+  - id: "{{ .Var.defaultBuildId }}_pkg"
+    ids: []
+    use: binary
+    identifier: "com.northwood-labs.{{ .ProjectName }}"
+    install_location: /usr/local/bin
+    replace: false
+    mod_timestamp: "{{ .CommitTimestamp }}"
+# @config-manager:end pkg

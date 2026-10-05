@@ -1,0 +1,7 @@
+---
+# @config-manager:start changelog
+# https://goreleaser.com/customization/changelog/
+changelog:
+  disable: false
+  use: github-native
+# @config-manager:end changelog

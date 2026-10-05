@@ -1,0 +1,30 @@
+---
+# @config-manager:start sbom
+# https://goreleaser.com/customization/sbom/
+sboms:
+  - id: "{{ .ProjectName }}_sbom_spdx"
+    ids: []
+    artifacts: archive
+    cmd: syft
+    args:
+      - "$artifact"
+      - "--output"
+      - "spdx-json=$document"
+      - "--enrich"
+      - "all"
+    documents:
+      - "${artifact}.spdx.json"
+
+  - id: "{{ .ProjectName }}_sbom_cyclonedx"
+    ids: []
+    artifacts: archive
+    cmd: syft
+    args:
+      - "$artifact"
+      - "--output"
+      - "cyclonedx-json=$document"
+      - "--enrich"
+      - "all"
+    documents:
+      - "${artifact}.cyclonedx.json"
+# @config-manager:end sbom

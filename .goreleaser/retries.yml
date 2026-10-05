@@ -1,0 +1,15 @@
+---
+retry:
+  # Set max retry count.
+  # Setting to 1 disables retries (single attempt).
+  #
+  # Default: 10
+  attempts: 10
+
+  # Set delay between retries.
+  #
+  # Default: 10s
+  delay: 10s
+
+  # Default: 5m
+  max_delay: 5m

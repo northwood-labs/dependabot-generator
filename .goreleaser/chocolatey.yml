@@ -1,0 +1,39 @@
+---
+# @config-manager:start chocolatey
+# https://goreleaser.com/customization/package/chocolatey/
+chocolateys:
+  - name: "{{ .ProjectName }}"
+    ids: []
+    package_source_url: "{{ .Var.homepage }}"
+    owners: Northwood Labs
+    title: "{{ .Var.projectNameEn }}"
+    authors: "{{ .Var.email }}"
+    project_url: "{{ .Var.homepage }}"
+    use: archive
+    url_template: "{{ .Var.homepage }}/releases/tag/v{{ .Version }}" # @TODO: Verify this.
+    icon_url: "{{ .Var.icon_url }}"
+    copyright: "{{ .Var.copyrightYears }}, {{ .Var.copyrightHolder }}"
+    license_url: "{{ .Var.homepage }}/blob/main/LICENSE.txt"
+    require_license_acceptance: false
+    project_source_url: "{{ .Var.homepage }}"
+    docs_url: "{{ .Var.homepage }}"
+    bug_tracker_url: "{{ .Var.homepage }}/issues"
+    summary: "{{ .Var.summary }}"
+    description: "{{ .Var.description }}"
+    release_notes: "{{ .Var.homepage }}/releases/tag/v{{ .Version }}"
+
+    # The API key that should be used to push to the Chocolatey repository.
+    #
+    # WARNING: do not expose your api key in the configuration file!
+    # Templates: allowed.
+    api_key: "{{ .Env.CHOCOLATEY_API_KEY }}"
+
+    # The source repository that will push the package to.
+    source_repo: "https://push.chocolatey.org/"
+
+    # GOAMD64 to specify which amd64 version to use if there are multiple
+    # versions from the build section.
+    #
+    # Default: 'v1'.
+    goamd64: v1
+# @config-manager:end chocolatey

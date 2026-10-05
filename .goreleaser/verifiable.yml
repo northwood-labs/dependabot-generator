@@ -1,0 +1,32 @@
+---
+# @config-manager:start verifiable
+# https://goreleaser.com/customization/builds/verifiable_builds/
+gomod:
+  # Proxy a module from proxy.golang.org, making the builds verifiable.
+  # This will only be effective if running against a tag. Snapshots will ignore
+  # this setting.
+  # Notice: for this to work your `build.main` must be a package, not a `.go` file.
+  proxy: true
+
+  # If proxy is true, use these environment variables when running `go mod`
+  # commands (namely, `go mod tidy`).
+  #
+  # Default: `os.Environ()` merged with what you set the root `env` section.
+  # env:
+  #   - GOPROXY=https://proxy.golang.org,direct
+  #   - GOSUMDB=sum.golang.org
+  #   - GOPRIVATE=example.com/blah
+
+  # Sets the `-mod` flag value.
+  # mod: mod
+
+  # Which Go binary to use.
+  #
+  # Default: `go`.
+  # gobinary: go1.17
+
+  # Directory in which the go.mod file is.
+  #
+  # Default: ''.
+  dir: "{{ .Var.goBuildMainDir }}"
+# @config-manager:end verifiable

@@ -1,0 +1,15 @@
+---
+# @config-manager:start archives
+# https://goreleaser.com/customization/archive/
+archives:
+  - name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    strip_binary_directory: true
+    files:
+      - none*
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats: ["zip"]
+    allow_different_binary_count: true
+# @config-manager:end archives

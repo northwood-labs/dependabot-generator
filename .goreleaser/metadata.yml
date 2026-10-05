@@ -1,0 +1,36 @@
+---
+# https://goreleaser.com/customization/general/metadata/
+metadata:
+  mod_timestamp: "{{ .CommitTimestamp }}"
+  license:
+  full_description:
+    from_file:
+      path: ./README.md
+
+  homepage: "{{ .Var.homepage }}"
+  description: "{{ .Var.description }}"
+
+  maintainers:
+    - "{{ .Var.email }}"
+
+  commit_author:
+    name: "Northwood Labs (Bot)"
+    email: bot@northwood-labs.com
+    use_github_app_token: true
+
+    signing:
+      enabled: true
+      # The signing key to use.
+      # Can be a key ID, fingerprint, email address, or path to a key file.
+      #
+      # Templates: allowed.
+      key: "{{ .Env.GPG_PRIVATE_KEY }}"
+      # The GPG program to use for signing.
+      #
+      # Templates: allowed.
+      program: gpg2
+      # The signature format to use.
+      #
+      # Valid options: openpgp, x509, ssh.
+      # Default: openpgp.
+      format: openpgp

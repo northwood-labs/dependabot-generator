@@ -1,0 +1,29 @@
+---
+# @config-manager:start builds
+# https://goreleaser.com/customization/builds/
+builds:
+  - id: "{{ .Var.defaultBuildId }}"
+    env:
+      - CGO_ENABLED=0
+    binary: "{{ .ProjectName }}_v{{ .Version }}"
+    main: "{{ .Var.goBuildMainDir }}"
+    builder: go
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
+      - -v
+    ldflags:
+      - -s -w
+      - -X go.nwlabs.dev/cli-helpers/v2.Version={{ .Version }}
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    goarm:
+      - 7
+    goarm64:
+      - v8.0
+# @config-manager:end builds

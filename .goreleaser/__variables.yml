@@ -1,0 +1,47 @@
+---
+variables:
+  ##
+  # PROJECT METADATA
+  ##
+
+  # @TODO: Add a real project name.
+  projectName: ""
+
+  # @TODO: Add a real english project name.
+  projectNameEn: ""
+
+  # @TODO: Add a real project summary (under 79 chars).
+  summary: ""
+
+  # @TODO: Add a real project description (under 100 chars).
+  description: ""
+
+  # @TODO: Full GitHub, Marketing, or Documentation URL.
+  homepage: "https://github.com/northwood-labs/"
+
+  # @TODO: Confirm the maintainer email address.
+  email: "Northwood Labs <maintainers@northwood-labs.com>"
+
+  # @TODO: Confirm the correct years for the project.
+  copyrightYears: "2026"
+  copyrightHolder: "Northwood Labs, LLC"
+  licensingEmail: "license@northwood-labs.com"
+
+  # @TODO: Add the PNG icon for the package (local file).
+  icon: ""
+
+  # @TODO: Add the PNG icon for the package (remote file).
+  icon_url: ""
+
+  # @TODO: Confirm this, but this is the default.
+  license: "Apache-2.0"
+
+  ##
+  # BUILDING
+  ##
+
+  # For Go builds, which directory contains the file with the main() function?
+  goBuildMainDir: "."
+
+  # This is the default build ID used.
+  defaultBuildId: "standard"

@@ -57,9 +57,9 @@ source_hash = ''
 dest_hash = 'sha256:8270a3751b6da3c012a2e10dba6c28bd03b49042c459729fc66bda15b4126994'
 
 [files.'.github/workflows/codeql.yml']
-last_sync_time = '2026-09-13T15:20:01Z'
+last_sync_time = '2026-10-05T19:08:45Z'
 source_hash = ''
-dest_hash = 'sha256:3f6ed9b7351f0ab44110479c18273965bd3e9472e7a23814884d339df639f7f6'
+dest_hash = 'sha256:d9abd15dabb511f019b4dfaee1722fb6ecf12c7d26ac6f02b1e68c00cf70521d'
 
 [files.'.github/workflows/dependabot-auto-merge.yml']
 last_sync_time = '2026-09-13T15:20:01Z'
@@ -72,14 +72,14 @@ source_hash = ''
 dest_hash = 'sha256:d7e38e0bbd341552530280bc1565ef788f776c47256250ec85e80d515176b167'
 
 [files.'.github/workflows/osv-scanner.yml']
-last_sync_time = '2026-09-13T15:20:01Z'
+last_sync_time = '2026-10-05T19:08:45Z'
 source_hash = ''
-dest_hash = 'sha256:ddbb160221954e6d72bcc9a7ffb9dec22aee8869775b7b94c8a4a79349fdcb63'
+dest_hash = 'sha256:969911b3d59364c85dca55c82580c242229079f6f78c8654a76c777ba3f90011'
 
 [files.'.github/workflows/scorecard.yml']
-last_sync_time = '2026-09-13T15:20:01Z'
+last_sync_time = '2026-10-05T19:08:45Z'
 source_hash = ''
-dest_hash = 'sha256:6769d485f50c5dd6e87a118a5f1e31bfe7cfd8fc539d37d244145caccdf07d23'
+dest_hash = 'sha256:df4a52f6ad03649da624296ef25e02b91ede538c0fb1dbb4e6d42c3d5740878f'
 
 [files.'.github/workflows/test.yml']
 last_sync_time = '2026-09-13T15:20:01Z'
@@ -87,14 +87,14 @@ source_hash = ''
 dest_hash = 'sha256:371fca1c440dac1b11c5ba7e3c38ebcf84ee1a200a4688f77eb236f807f0af51'
 
 [files.'.github/workflows/trufflehog.yml']
-last_sync_time = '2026-09-13T15:20:01Z'
+last_sync_time = '2026-10-05T19:08:45Z'
 source_hash = ''
-dest_hash = 'sha256:1116714e817958e7c8d0fd3464998b7b7c1865f83ff80c1707e44c5d8f2b3065'
+dest_hash = 'sha256:3cbdc1cd497eba4eff702e9a606e916948b19f14274f526fa675299290654811'
 
 [files.'.github/workflows/update-on-push.yml']
-last_sync_time = '2026-09-13T15:20:01Z'
+last_sync_time = '2026-10-05T19:08:45Z'
 source_hash = ''
-dest_hash = 'sha256:29909d6682931a618e16c2f543fa1fefca113cb78a65c5bbe30b2de829982bdb'
+dest_hash = 'sha256:bff3102f60fb7fe3e7e26b5ab27ef7d6b6bb1c3af5fc2f7e71fb52936b8e18fd'
 
 [files.'.github/zizmor.yml']
 last_sync_time = '2026-09-13T15:20:01Z'
@@ -277,9 +277,9 @@ source_hash = ''
 dest_hash = 'sha256:3aab64b69c52504b8785cce3046d70af4c72a2d8c51de16806551aa95998cb30'
 
 [files.'hk.pkl']
-last_sync_time = '2026-08-27T18:50:36Z'
+last_sync_time = '2026-10-05T19:08:45Z'
 source_hash = ''
-dest_hash = 'sha256:292bac398c6c4e618576e03bdbbd0aba47ccefe0f428919b00151a6821fa4a3e'
+dest_hash = 'sha256:bd12d19ebb2379250abe3eeaf1844758c9df50fc83bb148eefae8404856085d7'
 
 [files.'lychee.toml']
 last_sync_time = '2026-08-12T21:34:22Z'

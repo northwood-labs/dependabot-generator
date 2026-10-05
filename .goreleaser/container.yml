@@ -1,0 +1,70 @@
+---
+# @config-manager:start container
+# https://goreleaser.com/customization/package/docker_digests/
+docker_digest:
+  name_template: "{{ .ProjectName }}_digest.txt"
+
+# https://goreleaser.com/customization/package/dockers_v2/
+dockers_v2:
+  - id: "{{ .ProjectName }}_docker"
+    dockerfile: Dockerfile
+    ids: []
+    images:
+      - "northwood-labs/{{ .ProjectName }}"
+      - "ghcr.io/northwood-labs/{{ .ProjectName }}"
+
+    tags:
+      - "v{{ .Version }}"
+      - "{{ if .IsNightly }}nightly{{ end }}"
+      - "{{ if not .IsNightly }}latest{{ end }}"
+
+    labels:
+      "project": "{{ .ProjectName }}"
+
+    # Annotations to be added to the image.
+    #
+    # Keys may carry a scope prefix, see "Annotation scopes" below.
+    #
+    # Items with empty keys or values will be ignored.
+    #
+    # Templates: allowed.
+    annotations:
+      "org.opencontainers.image.description": "{{ .Var.description }}"
+      "org.opencontainers.image.created": "{{ .Date }}"
+      "org.opencontainers.image.name": "{{ .ProjectName }}"
+      "org.opencontainers.image.revision": "{{ .FullCommit }}"
+      "org.opencontainers.image.version": "{{ .Version }}"
+      "org.opencontainers.image.source": "{{ .GitURL }}"
+      "org.opencontainers.image.base.name": "{{ .BaseImage }}"
+      "org.opencontainers.image.base.digest": "{{ .BaseImageDigest }}"
+      "index,manifest:org.opencontainers.image.licenses": "{{ .Var.license }}"
+
+    platforms:
+      - linux/amd64
+      - linux/arm64
+
+    # Whether to create and attach a SBOM to the image.
+    #
+    # Default: 'true'. Templates: allowed. Since v2.12
+    sbom: "{{ not .IsNightly }}"
+
+# https://goreleaser.com/customization/sign/docker_sign/
+docker_signs:
+  - id: "{{ .ProjectName }}_docker_sign"
+    ids: []
+    artifacts: ""
+    output: true
+    stdin: "{{ .Env.COSIGN_PWD }}"
+    cmd: cosign
+
+    # Command line arguments for the command.
+    #
+    # Default: ["sign", "--key=cosign.key", "${artifact}@${digest}", "--yes"].
+    # Templates: allowed.
+    args:
+      - "sign"
+      - "--key=cosign.key"
+      - "--upload=true"
+      - "${artifact}"
+      - "--yes" # needed on cosign 2.0.0+
+# @config-manager:end container

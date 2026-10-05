@@ -1,0 +1,14 @@
+---
+# @config-manager:start signing
+# https://goreleaser.com/customization/sign/
+signs:
+  # Cosign
+  - artifacts: checksum
+    signature: "${artifact}.sigstore.json"
+    cmd: cosign
+    args:
+      - "sign-blob"
+      - "--bundle=${signature}"
+      - "${artifact}"
+      - "--yes"
+# @config-manager:end signing

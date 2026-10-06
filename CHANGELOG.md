@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
-### :tractor: Refactor
+### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`849c8f5`](https://github.com/northwood-labs/dependabot-generator/commit/849c8f59e6e774e2d260755938ce3b0ce05fe020): Modularize GoReleaser configuration. ([@skyzyx](https://github.com/skyzyx))
+* [`4920d06`](https://github.com/northwood-labs/dependabot-generator/commit/4920d06f587392989671cbcd895dedffd7fb7b73): Run formatter. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-10-05.</p>
+<p>Generated on 2026-10-06.</p>

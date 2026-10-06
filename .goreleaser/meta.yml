@@ -1,4 +1,6 @@
 ---
+# @config-manager:start meta
 version: 2
 
 project_name: "{{ .Var.projectName }}"
+# @config-manager:end meta

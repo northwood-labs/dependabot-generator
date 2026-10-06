@@ -1,33 +1,8 @@
 ---
+# @config-manager:start git
 version: 2
 
 git:
-  # What should be used to sort tags when gathering the current and previous
-  # tags if there are more than one tag in the same commit.
-  #
-  # See: https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---sortltkeygt
-  #
-  # Default: '-version:refname'.
   tag_sort: -version:refname
-
-  # What should be used to specify prerelease suffix while sorting tags when
-  # gathering the current and previous tags if there are more than one tag in
-  # the same commit.
   prerelease_suffix: "-"
-
-  # Tags to be ignored by GoReleaser. This means that GoReleaser will not pick
-  # up tags that match any of the provided values as either previous or current
-  # tags.
-  #
-  # Glob patterns are supported. Since v2.15.4 Templates: allowed.
-  # ignore_tags:
-  #   - nightly
-  #   - "*-nightly"
-  #   - "{{.Env.IGNORE_TAG}}"
-
-  # Tags that begin with these prefixes will be ignored.
-  #
-  # This feature is only available in GoReleaser Pro. Templates: allowed.
-  # ignore_tag_prefixes:
-  #   - foo/
-  #   - "{{.Env.IGNORE_TAG_PREFIX}}/bar"
+# @config-manager:end git

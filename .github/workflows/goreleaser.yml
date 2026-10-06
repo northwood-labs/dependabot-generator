@@ -207,5 +207,5 @@ jobs:
         with:
           distribution: goreleaser-pro
           version: "~> v2"
-          args: release --clean
+          args: release --clean --snapshot
     # @config-manager:end goreleaser

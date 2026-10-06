@@ -203,6 +203,7 @@ jobs:
         uses: step-security/goreleaser-action@0b0370b85341e59c5eca041619966f53c80fbd41 # v7.2.3
         env:
           GITHUB_TOKEN: ${{ steps.gh_token.outputs.token }}
+          GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
         with:
           distribution: goreleaser-pro
           version: "~> v2"

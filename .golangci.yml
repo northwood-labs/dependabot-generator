@@ -3351,7 +3351,7 @@ formatters:
       # Choose whether to use the extra rules.
       # Default: false
       extra-rules: true
-        # @config-manager:end formatters-settings-gofumpt
+      # @config-manager:end formatters-settings-gofumpt
 
     goimports:
       # @config-manager:start formatters-settings-goimports

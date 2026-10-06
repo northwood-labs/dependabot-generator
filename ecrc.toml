@@ -26,6 +26,11 @@ Exclude = [
   "testfixtures/.*$",
 
   # Files
+  "Cargo\\.lock$",
+  "LICENSE(\\.(md|txt))?$",
+  "Taskfile\\.([^\\.]+)\\.(yaml|yml)$",
+  "Taskfile\\.(yaml|yml)$",
+  "TerraformOptions.json$",
   "\\.7z$",
   "\\.avif$",
   "\\.bak$",
@@ -72,8 +77,8 @@ Exclude = [
   "\\.terraform-docs\\.yml$",
   "\\.terraform/.*$",
   "\\.terraform\\.lock\\.hcl$",
-  "\\.tfstate\\.backup$",
   "\\.tfstate$",
+  "\\.tfstate\\.backup$",
   "\\.tmpl$",
   "\\.tpl$",
   "\\.ttf$",
@@ -90,7 +95,6 @@ Exclude = [
   "^\\.yarn/",
   "^package-lock\\.json$",
   "aube-lock\\.yaml$",
-  "Cargo\\.lock$",
   "cliff\\.toml$",
   "composer\\.lock$",
   "go\\.mod$",
@@ -98,7 +102,6 @@ Exclude = [
   "go\\.tools\\.mod$",
   "go\\.tools\\.sum$",
   "golangci-lint\\.sarif",
-  "LICENSE(\\.(md|txt))?$",
   "manifest\\.json$",
   "min\\.css$",
   "min\\.js$",
@@ -108,9 +111,6 @@ Exclude = [
   "pnpm-workspace\\.yaml$",
   "poetry\\.lock$",
   "standard\\.mk$",
-  "Taskfile\\.([^\\.]+)\\.(yaml|yml)$",
-  "Taskfile\\.(yaml|yml)$",
-  "TerraformOptions.json$",
   "yarn\\.lock$",
   # @config-manager:end excludes
 

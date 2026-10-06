@@ -1,4 +1,6 @@
 ---
+version: 2
+
 retry:
   # Set max retry count.
   # Setting to 1 disables retries (single attempt).

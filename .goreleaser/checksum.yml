@@ -1,5 +1,7 @@
 ---
 # @config-manager:start checksum
+version: 2
+
 # https://goreleaser.com/customization/checksum/
 checksum:
   name_template: "{{ .ProjectName }}_{{ .Version }}_SHA256SUMS"

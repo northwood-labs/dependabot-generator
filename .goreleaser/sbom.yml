@@ -1,5 +1,7 @@
 ---
 # @config-manager:start sbom
+version: 2
+
 # https://goreleaser.com/customization/sbom/
 sboms:
   - id: "{{ .ProjectName }}_sbom_spdx"

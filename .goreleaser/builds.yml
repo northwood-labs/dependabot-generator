@@ -1,5 +1,7 @@
 ---
 # @config-manager:start builds
+version: 2
+
 # https://goreleaser.com/customization/builds/
 builds:
   - id: "{{ .Var.defaultBuildId }}"

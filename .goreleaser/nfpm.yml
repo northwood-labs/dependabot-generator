@@ -1,5 +1,7 @@
 ---
 # @config-manager:start nfpm
+version: 2
+
 # https://goreleaser.com/customization/package/nfpm/
 nfpms:
   - file_name_template: "{{ .ConventionalFileName }}"

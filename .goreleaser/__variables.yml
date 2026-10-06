@@ -1,4 +1,6 @@
 ---
+version: 2
+
 variables:
   ##
   # PROJECT METADATA

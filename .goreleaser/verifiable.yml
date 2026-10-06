@@ -1,5 +1,7 @@
 ---
 # @config-manager:start verifiable
+version: 2
+
 # https://goreleaser.com/customization/builds/verifiable_builds/
 gomod:
   # Proxy a module from proxy.golang.org, making the builds verifiable.

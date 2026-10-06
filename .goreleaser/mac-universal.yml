@@ -1,5 +1,7 @@
 ---
 # @config-manager:start mac-universal
+version: 2
+
 # https://goreleaser.com/customization/builds/universalbinaries/
 universal_binaries:
   - # ID of the resulting universal binary.

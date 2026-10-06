@@ -1,5 +1,7 @@
 ---
 # @config-manager:start pkg
+version: 2
+
 # https://goreleaser.com/customization/package/pkg/
 pkgs:
   - id: "{{ .Var.defaultBuildId }}_pkg"

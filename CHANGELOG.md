@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`4920d06`](https://github.com/northwood-labs/dependabot-generator/commit/4920d06f587392989671cbcd895dedffd7fb7b73): Run formatter. ([@skyzyx](https://github.com/skyzyx))
+* [`c8104e5`](https://github.com/northwood-labs/dependabot-generator/commit/c8104e5f2a2d6908f15f728cc141df6b37182e9d): Added GORELEASER_KEY secret to enable GoReleaser Pro. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-10-06.</p>

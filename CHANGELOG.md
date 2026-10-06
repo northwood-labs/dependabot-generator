@@ -8,6 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-* [`9f33201`](https://github.com/northwood-labs/dependabot-generator/commit/9f33201fe62fcc110c081f1cc695e4cb2dc01314): Update GoReleaser config files to version 2. ([@skyzyx](https://github.com/skyzyx))
+* [`4390125`](https://github.com/northwood-labs/dependabot-generator/commit/4390125a69f57ce7bc38d0b56448e9b029f22b62): Consolidated GoReleaser configuration and disabled distribution targets. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-10-06.</p>

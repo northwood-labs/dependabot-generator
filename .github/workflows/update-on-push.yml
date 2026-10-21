@@ -22,8 +22,6 @@ concurrency:
 # @config-manager:end workflow-concurrency
 
 # @config-manager:start workflow-permissions
-# Declare default permissions as read only.
-permissions: read-all
 # @config-manager:end workflow-permissions
 
 jobs:
@@ -40,9 +38,9 @@ jobs:
     steps:
       # @config-manager:start harden-runner
       - name: Harden Runner
-        uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
-        # @config-manager:end harden-runner
-        # @config-manager:start step-security-hosts
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+      # @config-manager:end harden-runner
+      # @config-manager:start step-security-hosts
         with:
           disable-sudo: true
           egress-policy: block
@@ -176,7 +174,7 @@ jobs:
 
       # @config-manager:start workflow-install-node
       - name: Install Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "26"
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -190,12 +188,14 @@ jobs:
       # @config-manager:end workflow-clone
 
       # @config-manager:start workflow-https-pat
-      # Replace me with GitHub App tokens!
-      - name: Configure Git to use HTTPS with the PAT
-        run: |
-          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com/".insteadOf "https://github.com/"
-          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com".insteadOf "ssh://git@github.com"
-          git config --global advice.detachedHead false
+      ##
+      # Replace me with:
+      #
+      #   github-app-token (+ with)
+      #   github-app-userid
+      #   github-app-git-config
+      ##
+      - run: exit 1
       # @config-manager:end workflow-https-pat
 
       # @config-manager:start workflow-gen-changelog
@@ -233,10 +233,9 @@ jobs:
           set +e
 
           git add .
-          git status | grep modified
-          if [ $? -eq 0 ]; then
+          if [[ "$(git status)" -eq 0 ]]; then
             git commit -a -m "automation: Updated AUTHORS and CHANGELOG on $(date)."
             git pull --rebase --autostash
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
+            git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" main
           fi
-    # @config-manager:end workflow-commit
+      # @config-manager:end workflow-commit

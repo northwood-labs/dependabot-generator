@@ -1,9 +1,8 @@
 // @config-manager:start imports
 // https://github.com/jdx/hk/blob/main/hk.pkl
 // https://github.com/jdx/hk/releases/latest
-amends "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Config.pkl"
-
-import "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Builtins.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Builtins.pkl"
 // @config-manager:end imports
 
 local linters = new Mapping<String, Group> {
@@ -116,8 +115,16 @@ local linters = new Mapping<String, Group> {
   }
   ["github"] = new Group {
     steps {
+      ["ghatm"] {
+        glob = ".github/workflows/*.y*ml"
+        fix = "ghatm set -auto -repo $(git github-remote)"
+      }
       ["ghalint-action"] = (Builtins.ghalint_action) {}
       ["ghalint-workflow"] = (Builtins.ghalint_workflow) {}
+      ["jactionlint"] {
+        glob = ".github/workflows/*.y*ml"
+        fix = "jactionlint --fix --online --profile=correctness {{ files }}"
+      }
       ["zizmor"] = (Builtins.zizmor) {}
     }
   }
@@ -234,9 +241,8 @@ local linters = new Mapping<String, Group> {
       }
       ["python-typechecking"] {
         glob = List("**/*.py", "**/*.pyi")
-        check = "uv tool run zuban check {{ files }}"
+        check = "uv tool run pyrefly check {{ files }}"
       }
-      // ty
     }
   }
   ["rest-api"] = new Group {

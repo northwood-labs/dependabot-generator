@@ -31,7 +31,7 @@ jobs:
     steps:
       # @config-manager:start harden-runner
       - name: Harden Runner
-        uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         # @config-manager:end harden-runner
         # @config-manager:start step-security-hosts
         with:
@@ -174,7 +174,7 @@ jobs:
 
       # @config-manager:start goreleaser-app-token
       - name: Fetch temporary app token for job
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         id: gh_token
         with:
           client-id: ${{ vars.GORELEASER_CLIENT_ID }}
@@ -200,7 +200,7 @@ jobs:
 
       # @config-manager:start goreleaser
       - name: Run GoReleaser
-        uses: step-security/goreleaser-action@0b0370b85341e59c5eca041619966f53c80fbd41 # v7.2.3
+        uses: step-security/goreleaser-action@e91207bb836a83eca7cb8b2e61024bcb6dc3c458 # v7.3.0
         env:
           GITHUB_TOKEN: ${{ steps.gh_token.outputs.token }}
           GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
